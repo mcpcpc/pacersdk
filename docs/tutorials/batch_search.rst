@@ -1,0 +1,31 @@
+Batch Search
+============
+
+Batch searching supports long-running job submission and result polling.
+
+Example:
+
+.. code-block:: python
+
+    from pacersdk.client import PCLClient
+
+    client = PCLClient(
+        username="your_username",
+        password="your_password",
+        environment="qa"
+    )
+
+    response = client.submit_batch_case_search({
+        "caseTitle": "Acme"
+    })
+
+    report_id = response.get("reportId")
+
+    # Check status
+    status = client.get_case_batch_status(report_id)
+    print(status)
+
+    # Download results when complete
+    if status["status"] == "COMPLETED":
+        results = client.get_case_batch_result(report_id)
+        print(results)
