@@ -43,31 +43,31 @@ class BatchPartySearchService:
             self.session.post("/pcl-public-api/rest/parties/download", request),
         )
 
-    def status(self, job_id: str) -> dict:
+    def status(self, report_id: str) -> dict:
         """
         Query the status of a batch party search job.
 
-        :param job_id: The job identifier.
+        :param report_id: The report identifier.
         :return: JSON status response.
         """
         return self.session.get(
-            f"/pcl-public-api/rest/parties/download/status/{job_id}"
+            f"/pcl-public-api/rest/parties/download/status/{report_id}"
         )
 
-    def download(self, job_id: str) -> dict:
+    def download(self, report_id: str) -> dict:
         """
         Download results of a completed batch party search job.
 
-        :param job_id: The job identifier.
+        :param report_id: The report identifier.
         :return: JSON response containing party data.
         """
-        return self.session.get(f"/pcl-public-api/rest/parties/download/{job_id}")
+        return self.session.get(f"/pcl-public-api/rest/parties/download/{report_id}")
 
-    def delete(self, job_id: str) -> dict:
+    def delete(self, report_id: str) -> dict:
         """
-        Delete a submitted batch party job by ID.
+        Delete a submitted batch party report by ID.
 
-        :param job_id: Batch job identifier.
+        :param report_id: Batch report identifier.
         :return: Response status or message.
         """
-        return self.session.delete(f"/pcl-public-api/rest/parties/reports/{job_id}")
+        return self.session.delete(f"/pcl-public-api/rest/parties/reports/{report_id}")
