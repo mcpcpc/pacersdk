@@ -69,3 +69,11 @@ class BatchCaseSearchService:
         :return: Response status or message.
         """
         return self.session.delete(f"/pcl-public-api/rest/cases/reports/{report_id}")
+
+    def listall(self) -> dict:
+        """
+        Retrieve a list of all current batch case jobs.
+
+        :return: Response status or message.
+        """
+        return self.session.get("/pcl-public-api/rest/cases/reports")

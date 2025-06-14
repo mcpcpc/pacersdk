@@ -167,3 +167,20 @@ class PCLClient:
         :return: Dictionary with deletion status.
         """
         return self.batch_party_search.delete(report_id)
+
+    def list_batch_case_jobs(self) -> dict:
+        """
+        List all current batch case jobs.
+
+        :return: Dictionary containing all current batch results.
+        """
+        return self.batch_case_search.listall()
+
+    def list_batch_party_jobs(self) -> dict:
+        """
+        List all current batch party jobs.
+
+        :return: Dictionary containing all current batch results.
+        """
+        return self.batch_party_search.listall()
+
