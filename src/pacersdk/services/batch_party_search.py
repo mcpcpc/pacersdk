@@ -29,7 +29,7 @@ class BatchPartySearchService:
         :param config: Dictionary with API endpoint URLs.
         :param token: Optional pre-fetched token.
         """
-        self.session = PCLSession(token_provider, config, token)
+        self.session = PCLSession(token_provider, config, 1, token)
 
     def submit(self, request: BatchPartyRequest) -> BatchPartyResponse:
         """

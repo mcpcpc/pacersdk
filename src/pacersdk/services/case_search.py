@@ -32,7 +32,7 @@ class CaseSearchService:
         :param config: Dictionary with base API URL.
         :param token: Optional pre-fetched token for session reuse.
         """
-        self.session = PCLSession(token_provider, config, token)
+        self.session = PCLSession(token_provider, config, 1, token)
 
     def search(
         self,
