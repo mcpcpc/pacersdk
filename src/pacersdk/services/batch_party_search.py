@@ -38,7 +38,10 @@ class BatchPartySearchService:
         :param request: A batch party search request model.
         :return: A BatchPartyResponse dictionary.
         """
-        return cast(BatchPartyResponse, self.session.post("/pcl-public-api/rest/parties/download", request))
+        return cast(
+            BatchPartyResponse,
+            self.session.post("/pcl-public-api/rest/parties/download", request),
+        )
 
     def status(self, job_id: str) -> dict:
         """
@@ -47,7 +50,9 @@ class BatchPartySearchService:
         :param job_id: The job identifier.
         :return: JSON status response.
         """
-        return self.session.get(f"/pcl-public-api/rest/parties/download/status/{job_id}")
+        return self.session.get(
+            f"/pcl-public-api/rest/parties/download/status/{job_id}"
+        )
 
     def download(self, job_id: str) -> dict:
         """

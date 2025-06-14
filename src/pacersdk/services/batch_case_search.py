@@ -38,7 +38,10 @@ class BatchCaseSearchService:
         :param request: A batch case search request model.
         :return: A BatchCaseResponse dictionary.
         """
-        return cast(BatchCaseResponse, self.session.post("/pcl-public-api/rest/cases/download", request))
+        return cast(
+            BatchCaseResponse,
+            self.session.post("/pcl-public-api/rest/cases/download", request),
+        )
 
     def status(self, job_id: str) -> dict:
         """
