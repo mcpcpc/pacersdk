@@ -43,7 +43,7 @@ class PCLSession:
         Internal request handler.
 
         :param request: Prepared urllib request object.
-        :param retries: Number of retries allowed on 401 error.
+        :param attempt: Number of attempts since 401 error.
         :return: JSON response or {"status": "No Content"}.
         """
         request.headers["X-NEXT-GEN-CSO"] = self.token
