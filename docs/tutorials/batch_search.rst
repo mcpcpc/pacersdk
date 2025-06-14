@@ -15,7 +15,7 @@ Example:
         environment="qa"
     )
 
-    response = client.submit_batch_case_search({
+    response = client.submit_batch_case({
         "caseTitle": "Acme"
     })
 
