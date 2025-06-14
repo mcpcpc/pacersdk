@@ -22,10 +22,10 @@ Example:
     report_id = response.get("reportId")
 
     # Check status
-    status = client.get_case_batch_status(report_id)
+    status = client.get_batch_case_status(report_id)
     print(status)
 
     # Download results when complete
     if status["status"] == "COMPLETED":
-        results = client.get_case_batch_result(report_id)
+        results = client.get_batch_case_result(report_id)
         print(results)
