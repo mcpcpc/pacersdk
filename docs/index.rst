@@ -48,6 +48,7 @@ Contents
    tutorials/batch_search
    tutorials/sorting 
    tutorials/mfa
+   tutorials/best_practices
 
 .. toctree::
    :maxdepth: 2
