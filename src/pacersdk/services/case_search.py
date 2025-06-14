@@ -6,6 +6,7 @@ from typing import Callable
 from typing import cast
 from typing import List
 from typing import Optional
+urllib.parse import urlencode
 
 from ..models.case import CaseSearchRequest
 from ..models.case import CaseSearchResponse
