@@ -46,6 +46,7 @@ Contents
    tutorials/install
    tutorials/immediate_search
    tutorials/batch_search
+   tutorials/sorting 
    tutorials/mfa
 
 .. toctree::
