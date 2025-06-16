@@ -27,7 +27,11 @@ case type (ascending):
     from pacersdk.models.sort import SortableCaseField
     from pacersdk.models.case import CaseSearchRequest
 
-    client = PCLClient(username="your-username", password="your-password")
+    client = PCLClient(
+        username="your-username",
+        password="your-password",
+        environment="qa"
+    )
     request = CaseSearchRequest(jurisdictionType="civil")
 
     sort_fields: list[SortableCaseField] = [
