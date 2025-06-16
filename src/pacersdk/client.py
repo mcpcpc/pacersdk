@@ -183,4 +183,3 @@ class PCLClient:
         :return: Dictionary containing all current batch results.
         """
         return self.batch_party_search.listall()
-

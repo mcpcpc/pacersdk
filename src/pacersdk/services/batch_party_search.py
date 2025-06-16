@@ -71,7 +71,7 @@ class BatchPartySearchService:
         :return: Response status or message.
         """
         return self.session.delete(f"/pcl-public-api/rest/parties/reports/{report_id}")
-        
+
     def listall(self) -> dict:
         """
         Retrieve a list of all current batch party jobs.
