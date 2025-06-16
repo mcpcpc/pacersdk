@@ -22,9 +22,9 @@ Avoid hardcoding your PACER credentials directly into your scripts or source cod
 
   .. code-block:: python
 
-     import os
-     username = os.getenv("PACER_USERNAME")
-     password = os.getenv("PACER_PASSWORD")
+     from os import getenv
+     username = getenv("PACER_USERNAME")
+     password = getenv("PACER_PASSWORD")
 
 - Consider using secret managers (e.g., HashiCorp Vault, AWS Secrets Manager)
   in production environments.

@@ -28,8 +28,8 @@ case type (ascending):
     from pacersdk.models.case import CaseSearchRequest
 
     client = PCLClient(
-        username="your-username",
-        password="your-password",
+        username="your_username",
+        password="your_password",
         environment="qa"
     )
     request = CaseSearchRequest(jurisdictionType="civil")
