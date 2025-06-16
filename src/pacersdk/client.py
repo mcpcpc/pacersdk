@@ -28,7 +28,7 @@ class PCLClient:
         username: str,
         password: str,
         secret: str = None,
-        environment: str = "qa",
+        environment: str = "prod",
         client_code: str = None,
         redaction: bool = False,
         config_path: str = None,
