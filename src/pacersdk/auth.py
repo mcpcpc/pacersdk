@@ -61,9 +61,9 @@ class Authenticator:
         if isinstance(self.secret, str):
             body["otpCode"] = totp(self.secret)
         if isinstance(self.client_code, str):
-            body_data["clientCode"] = self.client_code
+            body["clientCode"] = self.client_code
         if self.redaction:
-            body_data["redactFlag"] = "1"
+            body["redactFlag"] = "1"
         headers = {"Content-Type": "application/json", "Accept": "application/json"}
         request = Request(
             url=f"{host}/services/cso-auth",

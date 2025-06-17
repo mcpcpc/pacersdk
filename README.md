@@ -2,14 +2,6 @@
 
 Public Access to Court Electronic Records (PACER) API client library written in Python.
 
-## Background
-
-The PACER Case Locator (PCL) system is a nationwide index of federal court cases. Since November 2024, a PCL application programming interface (API) and its documentation have been made available to the public for searching the index.
-
-This library implements the API calls in a Pythonic way, allowing for intuitive and easy access to REST endpoints. The services are grouped into immediate and batch categories, reflecting the API's structure.
-
-> **Note:** This library supports both QA and production environments. The QA environment contains test data and is suitable for development and testing. Searches made in production may incur billing.
-
 ## Requirements
 
 - Python 3.11+
