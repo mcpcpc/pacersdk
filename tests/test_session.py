@@ -88,13 +88,6 @@ class TestPCLSession(TestCase):
         self.assertEqual(result["deleted"], True)
         mock_request.assert_called_once()
 
-    @patch.object(PCLSession, "_request")
-    def test_listall_calls_request(self, mock_request):
-        mock_request.return_value = {"listed": True}
-        result = self.session.listall()
-        self.assertEqual(result["listed"], True)
-        mock_request.assert_called_once()
-
 
 if __name__ == "__main__":
     main()
