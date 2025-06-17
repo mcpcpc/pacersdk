@@ -1,0 +1,12 @@
+{
+  "qa": {
+    "registrationurl": "https://qa-pacer.uscourts.gov",
+    "authenticationurl": "https://qa-login.uscourts.gov",
+    "pclapiurl": "https://qa-pcl.uscourts.gov"
+  },
+  "prod": {
+    "registrationurl": "https://pacer.uscourts.gov",
+    "authenticationurl": "https://pacer.login.uscourts.gov",
+    "pclapiurl": "https://pcl.uscourts.gov"
+  }
+}

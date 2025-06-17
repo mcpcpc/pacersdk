@@ -1,0 +1,20 @@
+[project]
+name = "pacersdk"
+description = "Python SDK for accessing the PACER API"
+readme = "README.md"
+license = {file = "LICENSE"}
+dynamic = ["version"]
+requires-python = ">=3.11"
+keywords = ["pacer", "client"]
+
+[project.urls]
+homepage = "https://github.com/mcpcpc/pacersdk"
+repository = "https://github.com/mcpcpc/pacersdk"
+changelog = "https://github.com/mcpcpc/pacersdk/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = ["black"]
+docs = ["sphinx"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pacersdk.__version__"}
