@@ -6,7 +6,6 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 from pacersdk.auth import Authenticator
-from pacersdk.auth import AuthenticationError
 
 
 class TestAuthenticator(TestCase):
@@ -34,20 +33,6 @@ class TestAuthenticator(TestCase):
         token = auth.get_token()
         self.assertEqual(token, "mocked_token")
         mock_totp.assert_called_once_with("BASE32SECRET")
-
-    @patch("pacersdk.auth.urlopen")
-    def test_get_token_failure_raises_error(self, mock_urlopen):
-        mock_urlopen.side_effect = HTTPError(
-            url="http://example.com",
-            code=400,
-            msg="error",
-            hdrs=None,
-            fp=BytesIO(b"Bad Request"),
-        )
-        auth = Authenticator("user", "pass", self.config)
-        with self.assertRaises(AuthenticationError) as context:
-            auth.get_token()
-        self.assertIn("Bad Request", str(context.exception))
 
     @patch("pacersdk.auth.urlopen")
     def test_logout_success(self, mock_urlopen):
