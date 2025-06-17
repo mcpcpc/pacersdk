@@ -50,7 +50,9 @@ class BatchCaseSearchService:
         :param report_id: The report identifier.
         :return: JSON status response.
         """
-        return self.session.get(f"/pcl-public-api/rest/cases/download/status/{report_id}")
+        return self.session.get(
+            f"/pcl-public-api/rest/cases/download/status/{report_id}"
+        )
 
     def download(self, report_id: str) -> dict:
         """
