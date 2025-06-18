@@ -91,6 +91,6 @@ class Authenticator:
         except HTTPError as e:
             if e.code != 204:
                 message = e.read().decode()
-                raise AuthenticationError(message)
+                raise Exception(message)
         finally:
             self.token = None
