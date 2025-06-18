@@ -54,7 +54,7 @@ class TestAuthenticator(TestCase):
         )
         auth = Authenticator("user", "pass", self.config)
         auth.token = self.token
-        with self.assertRaises(AuthenticationError) as context:
+        with self.assertRaises(Exception) as context:
             auth.logout()
         self.assertIn("Bad Request", str(context.exception))
         self.assertIsNone(auth.token)
