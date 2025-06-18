@@ -11,12 +11,6 @@ from urllib.request import urlopen
 from .otp import totp
 
 
-class AuthenticationError(Exception):
-    """Authentication error."""
-
-    pass
-
-
 class Authenticator:
     """
     Manages authentication with the PACER Case Locator API.
@@ -54,7 +48,6 @@ class Authenticator:
         Authenticate and retrieve a session token.
 
         :return: A valid session token string.
-        :raises AuthenticationError: If authentication fails.
         """
         host = self.config["authenticationurl"]
         body = {"loginId": self.username, "password": self.password}
@@ -71,15 +64,11 @@ class Authenticator:
             headers=headers,
             data=dumps(body).encode(),
         )
-        try:
-            with urlopen(request) as response:
-                data = response.read().decode()
-            message = loads(data)
-            self.token = message["nextGenCSO"]
-            return self.token
-        except HTTPError as e:
-            message = e.read().decode()
-            raise AuthenticationError(message)
+        with urlopen(request) as response:
+            data = response.read().decode()
+        message = loads(data)
+        self.token = message["nextGenCSO"]
+        return self.token
 
     def logout(self) -> None:
         """
@@ -102,6 +91,6 @@ class Authenticator:
         except HTTPError as e:
             if e.code != 204:
                 message = e.read().decode()
-                raise AuthenticationError(message)
+                raise Exception(message)
         finally:
             self.token = None
