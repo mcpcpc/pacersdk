@@ -6,12 +6,12 @@ from pacersdk.client import PCLClient
 
 
 class TestPCLClient(TestCase):
-    def setUp(self):                                         
+    def setUp(self):
         self.patcher = patch("pacersdk.client.Authenticator")
-        mock_authenticator = self.patcher.start()            
-        mock_authenticator.get_token.return_value = "token"  
-                                                             
-    def tearDown(self):                                      
+        mock_authenticator = self.patcher.start()
+        mock_authenticator.get_token.return_value = "token"
+
+    def tearDown(self):
         self.patcher.stop()
 
     @patch("pacersdk.client.CaseSearchService.search")
@@ -58,7 +58,7 @@ class TestPCLClient(TestCase):
     def test_list_batch_case_jobs(self, mock_listall):
         PCLClient("user", "pass").list_batch_case_jobs()
         mock_listall.assert_called_once()
-        
+
     @patch("pacersdk.client.BatchPartySearchService.listall")
     def test_list_batch_party_jobs(self, mock_listall):
         PCLClient("user", "pass").list_batch_party_jobs()
