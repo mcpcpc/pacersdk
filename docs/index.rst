@@ -3,7 +3,7 @@ pacersdk
 
 A Python SDK for interacting with the PACER Case Locator (PCL) API.
 
-What is PACER?
+What Is PACER?
 --------------
 
 **PACER** (Public Access to Court Electronic Records) is a service of the
@@ -18,15 +18,45 @@ Key features of PACER include:
 - **Document retrieval** for pleadings, motions, orders, and opinions.
 - **Fee-based system** with exemptions for low-usage access and QA environments.
 
-The PACER Case Locator (PCL) offers a consolidated, searchable index of court
-cases and is now accessible via a public RESTful API. This SDK simplifies
-interacting with that API from Python applications.
+Use Case and Audience
+---------------------
+
+This SDK is intended for **research and educational purposes only**. It enables users
+to perform structured queries against PACER's public RESTful API to retrieve metadata
+about federal cases and parties.
+
+Typical users include:
+
+- Legal researchers and academics
+- Educators and students studying legal systems
+- Developers experimenting with court data
+
+Quickstart
+----------
+
+Install the SDK:
+
+.. code-block:: bash
+
+   pip install -U pacersdk
+
+Perform a basic case search:
+
+.. code-block:: python
+
+   from pacersdk.client import PCLClient
+
+   client = PCLClient(username="your_username", password="your_password")
+   results = client.search_cases({
+       "caseTitle": "Smith",
+       "courtId": ["cacd"]
+   })
 
 .. admonition:: PACER QA Environment
 
    For testing purposes, a separate PACER QA environment is available. It
    contains test data and does not incur billing. We strongly recommend
-   using it during development.
+   using it during development
 
 Resources
 ---------
