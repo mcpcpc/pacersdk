@@ -11,10 +11,7 @@ from .services.batch_party_search import BatchPartySearchService
 from ..models.query import CourtCaseSearchCriteria
 from ..models.query import PartySearchCriteria
 from ..models.reports import ReportList
-from .models.batch import BatchCaseRequest
-from .models.batch import BatchCaseResponse
-from .models.batch import BatchPartyRequest
-from .models.batch import BatchPartyResponse
+from ..models.reports import ReportInfo
 
 
 class PCLClient:
@@ -63,11 +60,11 @@ class PCLClient:
             token_provider, self.config, token
         )
 
-    def logout(self):
+    def logout(self) -> None:
         """
         Log out of the session and revoke the token.
         """
-        self.authenticator.logout()
+        return self.authenticator.logout()
 
     def search_cases(
         self, criteria: CourtCaseSearchCriteria, page: int = 0, sort: dict = None
@@ -95,57 +92,57 @@ class PCLClient:
         """
         return self.party_search.search(criteria, page=page, sort=sort)
 
-    def submit_batch_case(self, request: BatchCaseRequest) -> BatchCaseResponse:
+    def submit_batch_case(self, criteria: CourtCaseSearchCriteria) -> ReportInfo:
         """
         Submit a batch case search.
 
-        :param request: BatchCaseRequest with case search filters.
-        :return: BatchCaseResponse containing the report ID.
+        :param criteria: CourtCaseSearchCriteria with case search filters.
+        :return: ReportInfo containing the report ID.
         """
-        return self.batch_case_search.submit(request)
+        return self.batch_case_search.submit(criteria)
 
-    def submit_batch_party(self, request: BatchPartyRequest) -> BatchPartyResponse:
+    def submit_batch_party(self, criteria: PartySearchCriteria) -> ReportInfo:
         """
         Submit a batch party search.
 
-        :param request: BatchPartyRequest with party search filters.
-        :return: BatchPartyResponse containing the report ID.
+        :param criteria: PartySearchCriteria with party search filters.
+        :return: ReportInfo containing the report ID.
         """
         return self.batch_party_search.submit(request)
 
-    def get_batch_case_status(self, report_id: str) -> dict:
+    def get_batch_case_status(self, report_id: str) -> ReportList:
         """
         Retrieve the status of a batch case search.
 
         :param report_id: The report identifier.
-        :return: Dictionary with batch job status.
+        :return: ReportList with batch job status.
         """
         return self.batch_case_search.status(report_id)
 
-    def get_batch_party_status(self, report_id: str) -> dict:
+    def get_batch_party_status(self, report_id: str) -> ReportList:
         """
         Retrieve the status of a batch party search.
 
         :param report_id: The report identifier.
-        :return: Dictionary with batch job status.
+        :return: ReportList with batch job status.
         """
         return self.batch_party_search.status(report_id)
 
-    def get_batch_case_results(self, report_id: str) -> dict:
+    def get_batch_case_results(self, report_id: str) -> ReportList:
         """
         Download results for a completed batch case search.
 
         :param report_id: The report identifier.
-        :return: Dictionary containing search results.
+        :return: ReportList containing search results.
         """
         return self.batch_case_search.download(report_id)
 
-    def get_batch_party_results(self, report_id: str) -> dict:
+    def get_batch_party_results(self, report_id: str) -> ReportList:
         """
         Download results for a completed batch party search.
 
         :param report_id: The report identifier.
-        :return: Dictionary containing search results.
+        :return: ReportList containing search results.
         """
         return self.batch_party_search.download(report_id)
 
@@ -167,18 +164,18 @@ class PCLClient:
         """
         return self.batch_party_search.delete(report_id)
 
-    def list_batch_case_jobs(self) -> dict:
+    def list_batch_case_jobs(self) -> ReportList:
         """
         List all current batch case jobs.
 
-        :return: Dictionary containing all current batch results.
+        :return: ReportList containing all current batch results.
         """
         return self.batch_case_search.listall()
 
-    def list_batch_party_jobs(self) -> dict:
+    def list_batch_party_jobs(self) -> ReportList:
         """
         List all current batch party jobs.
 
-        :return: Dictionary containing all current batch results.
+        :return: ReportList containing all current batch results.
         """
         return self.batch_party_search.listall()
