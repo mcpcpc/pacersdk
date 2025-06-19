@@ -14,7 +14,7 @@ changelog = "https://github.com/mcpcpc/pacersdk/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = ["black"]
-docs = ["sphinx"]
+docs = ["sphinx", "furo"]
 
 [tool.setuptools.dynamic]
 version = {attr = "pacersdk.__version__"}
