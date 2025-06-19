@@ -91,7 +91,7 @@ Contents
    auth
    client
    config
-   models
+   models/index
    otp
    services
    session
