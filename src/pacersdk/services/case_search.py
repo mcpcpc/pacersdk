@@ -8,8 +8,8 @@ from typing import List
 from typing import Optional
 from urllib.parse import urlencode
 
-from ..models.case import CaseSearchRequest
-from ..models.case import CaseSearchResponse
+from ..models.query import CourtCaseSearchCriteria
+from ..models.reports import ReportList
 from ..models.sort import SortableCaseField
 from ..session import PCLSession
 
@@ -36,17 +36,17 @@ class CaseSearchService:
 
     def search(
         self,
-        criteria: CaseSearchRequest,
+        criteria: CourtCaseSearchCriteria,
         page: int = 0,
         sort: Optional[List[SortableCaseField]] = None,
-    ) -> CaseSearchResponse:
+    ) -> ReportList:
         """
         Perform a case search.
 
-        :param criteria: CaseSearchRequest with optional filters.
+        :param criteria: CourtCaseSearchCriteria with optional filters.
         :param page: Zero-based page number of results to fetch.
         :param sort: Optional list of sort field/direction pairs.
-        :return: CaseSearchResponse containing search results.
+        :return: ReportList containing search results.
         """
         query = {"page": page}
         if isinstance(sort, list):
@@ -56,4 +56,4 @@ class CaseSearchService:
             path=f"/pcl-public-api/rest/cases/find?{params}",
             body=criteria,
         )
-        return cast(CaseSearchResponse, msg)
+        return cast(ReportList, msg)
