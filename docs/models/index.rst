@@ -5,7 +5,6 @@ Models
    :maxdepth: 1
    :caption: Models:
 
-   types
    billing
    cases
    courts

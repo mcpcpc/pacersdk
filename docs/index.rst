@@ -77,7 +77,7 @@ Contents
    :maxdepth: 1
    :caption: Tutorials:
 
-   tutorials/install
+   tutorials/installation
    tutorials/immediate_search
    tutorials/batch_search
    tutorials/sorting 
@@ -85,7 +85,7 @@ Contents
    tutorials/best_practices
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Library Reference:
 
    auth

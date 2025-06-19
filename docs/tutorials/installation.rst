@@ -42,7 +42,7 @@ To install from source (e.g. to contribute or use the latest version):
 
      .. code-block:: shell
 
-        venv\\Scripts\\activate
+        venv\Scripts\activate
 
 4. **Install the package in editable/development mode:**
 
