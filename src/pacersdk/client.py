@@ -8,10 +8,9 @@ from .services.case_search import CaseSearchService
 from .services.party_search import PartySearchService
 from .services.batch_case_search import BatchCaseSearchService
 from .services.batch_party_search import BatchPartySearchService
-from .models.case import CaseSearchRequest
-from .models.case import CaseSearchResponse
-from .models.party import PartySearchRequest
-from .models.party import PartySearchResponse
+from ..models.query import CourtCaseSearchCriteria
+from ..models.query import PartySearchCriteria
+from ..models.reports import ReportList
 from .models.batch import BatchCaseRequest
 from .models.batch import BatchCaseResponse
 from .models.batch import BatchPartyRequest
@@ -71,28 +70,28 @@ class PCLClient:
         self.authenticator.logout()
 
     def search_cases(
-        self, criteria: CaseSearchRequest, page: int = 0, sort: dict = None
-    ) -> CaseSearchResponse:
+        self, criteria: CourtCaseSearchCriteria, page: int = 0, sort: dict = None
+    ) -> ReportList:
         """
         Perform a case search.
 
         :param criteria: Dictionary of case search filters.
         :param page: Optional zero-based page number.
         :param sort: Optional list of sort field/direction pairs.
-        :return: CaseSearchResponse containing matching results.
+        :return: ReportList containing matching results.
         """
         return self.case_search.search(criteria, page=page, sort=sort)
 
     def search_parties(
-        self, criteria: PartySearchRequest, page: int = 0, sort: dict = None
-    ) -> PartySearchResponse:
+        self, criteria: PartySearchCriteria, page: int = 0, sort: dict = None
+    ) -> ReportList:
         """
         Perform a party search.
 
         :param criteria: Dictionary of party search filters.
         :param page: Optional zero-based page number.
         :param sort: Optional list of sort field/direction pairs.
-        :return: PartySearchResponse containing matching results.
+        :return: ReportList containing matching results.
         """
         return self.party_search.search(criteria, page=page, sort=sort)
 
