@@ -108,7 +108,7 @@ class PCLClient:
         :param criteria: PartySearchCriteria with party search filters.
         :return: ReportInfo containing the report ID.
         """
-        return self.batch_party_search.submit(request)
+        return self.batch_party_search.submit(criteria)
 
     def get_batch_case_status(self, report_id: str) -> ReportList:
         """
