@@ -52,7 +52,9 @@ class BatchPartySearchService:
         """
         return cast(
             ReportList,
-            self.session.get(f"/pcl-public-api/rest/parties/download/status/{report_id}")
+            self.session.get(
+                f"/pcl-public-api/rest/parties/download/status/{report_id}"
+            ),
         )
 
     def download(self, report_id: str) -> ReportList:
@@ -64,7 +66,7 @@ class BatchPartySearchService:
         """
         return cast(
             ReportList,
-            self.session.get(f"/pcl-public-api/rest/parties/download/{report_id}")
+            self.session.get(f"/pcl-public-api/rest/parties/download/{report_id}"),
         )
 
     def delete(self, report_id: str) -> dict:
@@ -83,6 +85,5 @@ class BatchPartySearchService:
         :return: ReportList object.
         """
         return cast(
-            ReportList,
-            self.session.get("/pcl-public-api/rest/parties/reports")
+            ReportList, self.session.get("/pcl-public-api/rest/parties/reports")
         )
