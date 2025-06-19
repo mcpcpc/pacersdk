@@ -2,17 +2,14 @@ from typing import List
 from typing import Optional
 from typing import TypedDict
 
-from .types import Date
-from .types import JurisdictionType
 from .billing import PageInfo
 from .billing import Receipt
 from .cases import CourtCase
+from .types import Date
+from .types import JurisdictionType
 
 
 class BaseParty(TypedDict):
-    """
-    Basic party information associated with a court case.
-    """
     courtId: str
     caseId: str
     caseYear: int
@@ -43,9 +40,6 @@ class BaseParty(TypedDict):
 
 
 class PartyList(TypedDict):
-    """
-    A list of parties with associated metadata and optional receipt.
-    """
     receipt: Optional[Receipt]
     pageInfo: Optional[PageInfo]
     masterCase: Optional[CourtCase]
@@ -53,26 +47,17 @@ class PartyList(TypedDict):
 
 
 class PartyListXml(TypedDict):
-    """
-    XML-wrapped party list structure.
-    """
     receipt: Receipt
     pageInfo: Optional[PageInfo]
     content: List[BaseParty]
 
 
 class Parties(TypedDict):
-    """
-    A variation of the party list with optional receipt and parties.
-    """
     receipt: Optional[Receipt]
     pageInfo: Optional[PageInfo]
     content: Optional[List[BaseParty]]
 
 
 class PartyType(TypedDict):
-    """
-    Container for a single party with an optional receipt.
-    """
     receipt: Optional[Receipt]
     item: Optional[BaseParty]

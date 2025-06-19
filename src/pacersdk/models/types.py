@@ -1,5 +1,5 @@
-from typing import NewType
 from decimal import Decimal
+from typing import NewType
 
 # Represents a single alphanumeric character (0-9, a-z, A-Z)
 Character = NewType("Character", str)

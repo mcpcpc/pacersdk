@@ -5,9 +5,6 @@ from .types import Money
 
 
 class PageInfo(TypedDict):
-    """
-    Metadata about a paginated API response.
-    """
     number: int
     size: int
     totalPages: int
@@ -18,9 +15,6 @@ class PageInfo(TypedDict):
 
 
 class Receipt(TypedDict):
-    """
-    Details of a billable transaction or search receipt.
-    """
     transactionId: int
     transactionDate: DateTime
     billablePages: int
