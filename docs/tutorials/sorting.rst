@@ -24,22 +24,20 @@ case type (ascending):
 .. code-block:: python
 
     from pacersdk.client import PCLClient
-    from pacersdk.models.sort import SortableCaseField
-    from pacersdk.models.case import CaseSearchRequest
 
     client = PCLClient(
         username="your_username",
         password="your_password",
         environment="qa"
     )
-    request = CaseSearchRequest(jurisdictionType="civil")
+    criteria = {"jurisdictionType": "civil"}
 
-    sort_fields: list[SortableCaseField] = [
+    sort_fields = [
         {"field": "caseYear", "order": "DESC"},
         {"field": "caseType", "order": "ASC"},
     ]
 
-    response = client.search_cases(criteria=request, sort=sort_fields)
+    response = client.search_cases(criteria, sort=sort_fields)
     print(response)
 
 Important Notes
