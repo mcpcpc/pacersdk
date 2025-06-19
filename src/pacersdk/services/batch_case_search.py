@@ -52,7 +52,7 @@ class BatchCaseSearchService:
         """
         return cast(
             ReportList,
-            self.session.get(f"/pcl-public-api/rest/cases/download/status/{report_id}")
+            self.session.get(f"/pcl-public-api/rest/cases/download/status/{report_id}"),
         )
 
     def download(self, report_id: str) -> ReportList:
@@ -64,7 +64,7 @@ class BatchCaseSearchService:
         """
         return cast(
             ReportList,
-            self.session.get(f"/pcl-public-api/rest/cases/download/{report_id}")
+            self.session.get(f"/pcl-public-api/rest/cases/download/{report_id}"),
         )
 
     def delete(self, report_id: str) -> dict:
@@ -82,7 +82,4 @@ class BatchCaseSearchService:
 
         :return: ReportList object.
         """
-        return cast(
-            ReportList,
-            self.session.get("/pcl-public-api/rest/cases/reports")
-        )
+        return cast(ReportList, self.session.get("/pcl-public-api/rest/cases/reports"))
