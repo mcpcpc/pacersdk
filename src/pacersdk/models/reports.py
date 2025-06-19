@@ -46,12 +46,6 @@ class ReportList(TypedDict):
     content: List[ReportInfo]
 
 
-class ReportListXml(TypedDict):
-    pageInfo: Optional[PageInfo]
-    receipt: Optional[Receipt]
-    content: List[ReportInfo]
-
-
 class Download(TypedDict):
     receipt: Optional[Receipt]
     pageInfo: Optional[PageInfo]

@@ -63,12 +63,6 @@ class CourtCaseList(TypedDict):
     content: List[BaseCourtCase]
 
 
-class CourtCaseListXml(TypedDict):
-    receipt: Receipt
-    pageInfo: Optional[PageInfo]
-    content: List[BaseCourtCase]
-
-
 class CourtCases(TypedDict):
     receipt: Optional[Receipt]
     pageInfo: Optional[PageInfo]

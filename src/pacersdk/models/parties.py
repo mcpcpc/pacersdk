@@ -46,12 +46,6 @@ class PartyList(TypedDict):
     content: List[BaseParty]
 
 
-class PartyListXml(TypedDict):
-    receipt: Receipt
-    pageInfo: Optional[PageInfo]
-    content: List[BaseParty]
-
-
 class Parties(TypedDict):
     receipt: Optional[Receipt]
     pageInfo: Optional[PageInfo]
