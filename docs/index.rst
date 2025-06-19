@@ -93,7 +93,7 @@ Contents
    config
    models/index
    otp
-   services
+   services/index
    session
    
 .. toctree::
