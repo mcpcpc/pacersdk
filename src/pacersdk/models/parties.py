@@ -1,7 +1,7 @@
 """
 TypedDict models related to parties in PACER cases.
 
-Defines `BaseParty`, `Party`, and `PartyList` to represent individual 
+Defines `BaseParty`, `Party`, and `PartyList` to represent individual
 and grouped search results for litigants and other involved persons/entities.
 """
 
