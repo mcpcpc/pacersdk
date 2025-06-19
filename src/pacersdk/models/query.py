@@ -1,3 +1,10 @@
+"""
+TypedDict models for search query criteria and responses.
+
+Includes reusable criteria structures for querying the PACER system,
+including `GenericSearchCriteria`, `CombinedSearchCriteria`, and others.
+"""
+
 from typing import List
 from typing import Optional
 from typing import TypedDict

@@ -1,3 +1,10 @@
+"""
+TypedDict models representing PACER case metadata.
+
+Defines `BaseCourtCase`, `CourtCase`, and related structures used to 
+describe court case information, including jurisdiction, dates, and case identifiers.
+"""
+
 from typing import List
 from typing import Optional
 from typing import TypedDict

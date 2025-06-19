@@ -1,3 +1,10 @@
+"""
+TypedDict models for report generation and sorting.
+
+Defines report-specific models such as `ReportSortInfo`, along with 
+structures to support combined search and reporting functionality in PACER.
+"""
+
 from typing import List
 from typing import Optional
 from typing import TypedDict

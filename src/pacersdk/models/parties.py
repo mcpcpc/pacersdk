@@ -1,3 +1,10 @@
+"""
+TypedDict models related to parties in PACER cases.
+
+Defines `BaseParty`, `Party`, and `PartyList` to represent individual 
+and grouped search results for litigants and other involved persons/entities.
+"""
+
 from typing import List
 from typing import Optional
 from typing import TypedDict

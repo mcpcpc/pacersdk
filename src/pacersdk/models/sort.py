@@ -1,5 +1,8 @@
 """
-Models for specifying sort fields for search results.
+TypedDict models for specifying sortable fields in search queries.
+
+Provides structures such as `SortableCaseField` and `SortablePartyField`
+to customize result ordering for PACER queries.
 """
 
 from typing import Literal

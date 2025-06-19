@@ -1,3 +1,10 @@
+"""
+Type aliases representing common PACER scalar types.
+
+Includes newtypes like `Date`, `DateTime`, `Money`, and `Character`
+used throughout the PACER SDK for strong typing and validation.
+"""
+
 from decimal import Decimal
 from typing import NewType
 

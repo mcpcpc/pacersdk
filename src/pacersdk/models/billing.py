@@ -1,3 +1,10 @@
+"""
+TypedDict definitions for PACER billing models.
+
+Includes models such as `PageInfo` and `Receipt` that represent
+billing-related metadata and transaction receipts returned by the PACER API.
+"""
+
 from typing import TypedDict
 
 from .types import DateTime
