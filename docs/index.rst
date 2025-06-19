@@ -46,7 +46,11 @@ Perform a basic case search:
 
    from pacersdk.client import PCLClient
 
-   client = PCLClient(username="your_username", password="your_password")
+   client = PCLClient(
+       username="your_username",
+       password="your_password",
+       environment="qa"
+   )
    results = client.search_cases({
        "caseTitle": "Smith",
        "courtId": ["cacd"]
