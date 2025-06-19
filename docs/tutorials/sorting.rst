@@ -50,5 +50,5 @@ Important Notes
 
 For available sortable fields, see the library reference documentation for:
 
-- :class:`pacersdk.models.sort.SortableCaseField`
-- :class:`pacersdk.models.sort.SortablePartyField`
+- :class:`pacersdk.models.sort.CaseField`
+- :class:`pacersdk.models.sort.PartyField`

@@ -1,7 +1,7 @@
 """
 TypedDict models for specifying sortable fields in search queries.
 
-Provides structures such as `SortableCaseField` and `SortablePartyField`
+Provides structures such as `CaseField` and `PartyField`
 to customize result ordering for PACER queries.
 """
 
@@ -9,7 +9,7 @@ from typing import Literal
 from typing import TypedDict
 
 
-class SortableCaseField(TypedDict):
+class CaseField(TypedDict):
     """
     Represents a sortable field and direction for case search.
     """
@@ -55,7 +55,7 @@ class SortableCaseField(TypedDict):
     order: Literal["ASC", "DESC"]
 
 
-class SortablePartyField(TypedDict):
+class PartyField(TypedDict):
     """
     Represents a sortable field and direction for party search.
     """
