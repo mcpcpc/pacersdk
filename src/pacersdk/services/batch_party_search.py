@@ -8,6 +8,7 @@ from typing import Optional
 
 from ..session import PCLSession
 from ..models.reports import ReportInfo
+from ..models.reports import ReportList
 
 
 class BatchPartySearchService:
@@ -35,32 +36,36 @@ class BatchPartySearchService:
         Submit a batch party search job.
 
         :param request: A batch party search request model.
-        :return: A ReportInfo dictionary.
+        :return: ReportInfo object.
         """
         return cast(
             ReportInfo,
             self.session.post("/pcl-public-api/rest/parties/download", request),
         )
 
-    def status(self, report_id: str) -> dict:
+    def status(self, report_id: str) -> ReportList:
         """
         Query the status of a batch party search job.
 
         :param report_id: The report identifier.
-        :return: JSON status response.
+        :return: ReportList object.
         """
-        return self.session.get(
-            f"/pcl-public-api/rest/parties/download/status/{report_id}"
+        return cast(
+            ReportList,
+            self.session.get(f"/pcl-public-api/rest/parties/download/status/{report_id}")
         )
 
-    def download(self, report_id: str) -> dict:
+    def download(self, report_id: str) -> ReportList:
         """
         Download results of a completed batch party search job.
 
         :param report_id: The report identifier.
-        :return: JSON response containing party data.
+        :return: ReportList object.
         """
-        return self.session.get(f"/pcl-public-api/rest/parties/download/{report_id}")
+        return cast(
+            ReportList,
+            self.session.get(f"/pcl-public-api/rest/parties/download/{report_id}")
+        )
 
     def delete(self, report_id: str) -> dict:
         """
@@ -71,10 +76,13 @@ class BatchPartySearchService:
         """
         return self.session.delete(f"/pcl-public-api/rest/parties/reports/{report_id}")
 
-    def listall(self) -> dict:
+    def listall(self) -> ReportList:
         """
         Retrieve a list of all current batch party jobs.
 
-        :return: Response status or message.
+        :return: ReportList object.
         """
-        return self.session.get("/pcl-public-api/rest/parties/reports")
+        return cast(
+            ReportList,
+            self.session.get("/pcl-public-api/rest/parties/reports")
+        )
