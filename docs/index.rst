@@ -46,7 +46,11 @@ Perform a basic case search:
 
    from pacersdk.client import PCLClient
 
-   client = PCLClient(username="your_username", password="your_password")
+   client = PCLClient(
+       username="your_username",
+       password="your_password",
+       environment="qa"
+   )
    results = client.search_cases({
        "caseTitle": "Smith",
        "courtId": ["cacd"]
@@ -73,7 +77,7 @@ Contents
    :maxdepth: 1
    :caption: Tutorials:
 
-   tutorials/install
+   tutorials/installation
    tutorials/immediate_search
    tutorials/batch_search
    tutorials/sorting 
@@ -81,15 +85,15 @@ Contents
    tutorials/best_practices
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Library Reference:
 
    auth
    client
    config
-   models
+   models/index
    otp
-   services
+   services/index
    session
    
 .. toctree::
