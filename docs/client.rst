@@ -1,5 +1,5 @@
-Client API
-==========
+Client
+======
 
 .. automodule:: pacersdk.client
    :members:
