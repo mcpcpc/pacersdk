@@ -59,7 +59,6 @@ class BaseCourtCaseSearchCriteria(GenericSearchCriteria, total=False):
     dateDismissJtTo: Date
     dateDischargeJtFrom: Date
     dateDischargeJtTo: Date
-
     caseJoint: Character
 
 

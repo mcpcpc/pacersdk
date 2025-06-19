@@ -8,8 +8,8 @@ from typing import List
 from typing import Optional
 from urllib.parse import urlencode
 
-from ..models.party import PartySearchRequest
-from ..models.party import PartySearchResponse
+from ..models.query import PartySearchCriteria
+from ..models.reports import ReportList
 from ..models.sort import SortablePartyField
 from ..session import PCLSession
 
@@ -36,17 +36,17 @@ class PartySearchService:
 
     def search(
         self,
-        criteria: PartySearchRequest,
+        criteria: PartySearchCriteria,
         page: int = 0,
         sort: Optional[List[SortablePartyField]] = None,
-    ) -> PartySearchResponse:
+    ) -> ReportList:
         """
         Perform a party search.
 
-        :param criteria: PartySearchRequest with optional filters.
+        :param criteria: PartySearchCriteria with optional filters.
         :param page: Zero-based page number of results to fetch.
         :param sort: Optional list of sort field/direction pairs.
-        :return: PartySearchResponse containing search results.
+        :return: ReportList containing search results.
         """
         query = {"page": page}
         if isinstance(sort, list):
@@ -56,4 +56,4 @@ class PartySearchService:
             path=f"/pcl-public-api/rest/parties/find?{params}",
             body=criteria,
         )
-        return cast(PartySearchResponse, msg)
+        return cast(ReportList, msg)
