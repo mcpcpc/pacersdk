@@ -7,8 +7,7 @@ from typing import cast
 from typing import Optional
 
 from ..session import PCLSession
-from ..models.batch import BatchPartyResponse
-from ..models.batch import BatchPartyRequest
+from ..models.reports import ReportInfo
 
 
 class BatchPartySearchService:
@@ -31,15 +30,15 @@ class BatchPartySearchService:
         """
         self.session = PCLSession(token_provider, config, 1, token)
 
-    def submit(self, request: BatchPartyRequest) -> BatchPartyResponse:
+    def submit(self, request: dict) -> ReportInfo:
         """
         Submit a batch party search job.
 
         :param request: A batch party search request model.
-        :return: A BatchPartyResponse dictionary.
+        :return: A ReportInfo dictionary.
         """
         return cast(
-            BatchPartyResponse,
+            ReportInfo,
             self.session.post("/pcl-public-api/rest/parties/download", request),
         )
 

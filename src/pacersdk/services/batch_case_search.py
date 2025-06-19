@@ -7,8 +7,7 @@ from typing import cast
 from typing import Optional
 
 from ..session import PCLSession
-from ..models.batch import BatchCaseResponse
-from ..models.batch import BatchCaseRequest
+from ..models.reports import ReportInfo
 
 
 class BatchCaseSearchService:
@@ -31,15 +30,15 @@ class BatchCaseSearchService:
         """
         self.session = PCLSession(token_provider, config, 1, token)
 
-    def submit(self, request: BatchCaseRequest) -> BatchCaseResponse:
+    def submit(self, request: dict) -> ReportInfo:
         """
         Submit a batch case search job.
 
         :param request: A batch case search request model.
-        :return: A BatchCaseResponse dictionary.
+        :return: A ReportInfo dictionary.
         """
         return cast(
-            BatchCaseResponse,
+            ReportInfo,
             self.session.post("/pcl-public-api/rest/cases/download", request),
         )
 
