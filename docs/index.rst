@@ -56,7 +56,8 @@ Perform a basic case search:
        "courtId": ["cacd"]
    })
 
-.. admonition:: PACER Developer Testing
+.. admonition:: Developer Testing Environment
+   :class: tip
 
    For testing purposes, a separate PACER QA environment is available. It
    contains test data and does not incur billing. We strongly recommend
