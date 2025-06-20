@@ -28,9 +28,14 @@ class PCLClient:
         client_code: str = None,
         redaction: bool = False,
         config_path: str = None,
+        authenticator: Authenticator = None,
+        case_search: CaseSearchService = None,
+        party_search: PartySearchService = None,
+        batch_case_search: BatchCaseSearchService = None,
+        batch_party_search: BatchPartySearchService = None
     ) -> None:
         """
-        Initialize the API client.
+        Initialize the PACER Case Locator client with optional overrides for authentication and service layers.
 
         :param username: PACER system user ID.
         :param password: PACER system password.
@@ -39,9 +44,14 @@ class PCLClient:
         :param client_code: Optional client code for court searches.
         :param redaction: Optional flag to indicate redaction compliance.
         :param config_path: Optional path to a custom JSON config file.
+        :param authenticator: Optional Authenticator instance override.
+        :param case_search: Optional CaseSearchService instance override.
+        :param party_search: Optional PartySearchService instance override.
+        :param batch_case_search: Optional BatchCaseSearchService instance override.
+        :param batch_party_search: Optional BatchPartySearchService instance override.
         """
         self.config = get_config(environment, config_path)
-        self.authenticator = Authenticator(
+        self.authenticator = authenticator or Authenticator(
             username=username,
             password=password,
             secret=secret,
@@ -51,12 +61,16 @@ class PCLClient:
         )
         self.token_provider = self.authenticator.get_token
         token = self.token_provider()
-        self.case_search = CaseSearchService(self.token_provider, self.config, token)
-        self.party_search = PartySearchService(self.token_provider, self.config, token)
-        self.batch_case_search = BatchCaseSearchService(
+        self.case_search = case_search or CaseSearchService(
             self.token_provider, self.config, token
         )
-        self.batch_party_search = BatchPartySearchService(
+        self.party_search = party_search or PartySearchService(
+            self.token_provider, self.config, token
+        )
+        self.batch_case_search = batch_case_search or BatchCaseSearchService(
+            self.token_provider, self.config, token
+        )
+        self.batch_party_search = batch_party_search or BatchPartySearchService(
             self.token_provider, self.config, token
         )
 
