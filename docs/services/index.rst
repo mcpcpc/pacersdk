@@ -5,7 +5,7 @@ Services
    :maxdepth: 1
    :caption: Services:
 
-   case_search
-   party_search
-   batch_case_search
-   batch_party_search
+   case
+   party
+   batch_case
+   batch_party

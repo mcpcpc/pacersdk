@@ -37,7 +37,7 @@ case type (ascending):
         {"field": "caseType", "order": "ASC"},
     ]
 
-    response = client.search_cases(criteria, sort=sort_fields)
+    response = client.case.search(criteria, sort=sort_fields)
     print(response)
 
 Important Notes

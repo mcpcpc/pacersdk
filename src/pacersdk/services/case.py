@@ -14,7 +14,7 @@ from ..models.sort import CaseField
 from ..session import PCLSession
 
 
-class CaseSearchService:
+class CaseService:
     """
     Provides access to the case search API endpoint.
     """

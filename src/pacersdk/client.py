@@ -8,10 +8,10 @@ from .models.query import CourtCaseSearchCriteria
 from .models.query import PartySearchCriteria
 from .models.reports import ReportList
 from .models.reports import ReportInfo
-from .services.case_search import CaseSearchService
-from .services.party_search import PartySearchService
-from .services.batch_case_search import BatchCaseSearchService
-from .services.batch_party_search import BatchPartySearchService
+from .services.case import CaseService
+from .services.party import PartyService
+from .services.batch_case import BatchCaseService
+from .services.batch_party import BatchPartyService
 
 
 class PCLClient:
@@ -51,131 +51,21 @@ class PCLClient:
         )
         self.token_provider = self.authenticator.get_token
         token = self.token_provider()
-        self.case_search = CaseSearchService(self.token_provider, self.config, token)
-        self.party_search = PartySearchService(self.token_provider, self.config, token)
-        self.batch_case_search = BatchCaseSearchService(
-            self.token_provider, self.config, token
-        )
-        self.batch_party_search = BatchPartySearchService(
-            self.token_provider, self.config, token
-        )
+
+        #: Instance of :class:`pacersdk.services.case.CaseService`
+        self.case = CaseService(self.token_provider, self.config, token)
+
+        #: Instance of :class:`pacersdk.services.party.PartyService`
+        self.party = PartyService(self.token_provider, self.config, token)
+
+        #: Instance of :class:`pacersdk.services.batch_case.BatchCaseService`
+        self.batch_case = BatchCaseService(self.token_provider, self.config, token)
+
+        #: Instance of :class:`pacersdk.services.batch_party.BatchPartyService`
+        self.batch_party = BatchPartyService(self.token_provider, self.config, token)
 
     def logout(self) -> None:
         """
         Log out of the session and revoke the token.
         """
         return self.authenticator.logout()
-
-    def search_cases(
-        self, criteria: CourtCaseSearchCriteria, page: int = 0, sort: dict = None
-    ) -> ReportList:
-        """
-        Perform a case search.
-
-        :param criteria: Dictionary of case search filters.
-        :param page: Optional zero-based page number.
-        :param sort: Optional list of sort field/direction pairs.
-        :return: ReportList containing matching results.
-        """
-        return self.case_search.search(criteria, page=page, sort=sort)
-
-    def search_parties(
-        self, criteria: PartySearchCriteria, page: int = 0, sort: dict = None
-    ) -> ReportList:
-        """
-        Perform a party search.
-
-        :param criteria: Dictionary of party search filters.
-        :param page: Optional zero-based page number.
-        :param sort: Optional list of sort field/direction pairs.
-        :return: ReportList containing matching results.
-        """
-        return self.party_search.search(criteria, page=page, sort=sort)
-
-    def submit_batch_case(self, criteria: CourtCaseSearchCriteria) -> ReportInfo:
-        """
-        Submit a batch case search.
-
-        :param criteria: CourtCaseSearchCriteria with case search filters.
-        :return: ReportInfo containing the report ID.
-        """
-        return self.batch_case_search.submit(criteria)
-
-    def submit_batch_party(self, criteria: PartySearchCriteria) -> ReportInfo:
-        """
-        Submit a batch party search.
-
-        :param criteria: PartySearchCriteria with party search filters.
-        :return: ReportInfo containing the report ID.
-        """
-        return self.batch_party_search.submit(criteria)
-
-    def get_batch_case_status(self, report_id: str) -> ReportList:
-        """
-        Retrieve the status of a batch case search.
-
-        :param report_id: The report identifier.
-        :return: ReportList with batch job status.
-        """
-        return self.batch_case_search.status(report_id)
-
-    def get_batch_party_status(self, report_id: str) -> ReportList:
-        """
-        Retrieve the status of a batch party search.
-
-        :param report_id: The report identifier.
-        :return: ReportList with batch job status.
-        """
-        return self.batch_party_search.status(report_id)
-
-    def get_batch_case_results(self, report_id: str) -> ReportList:
-        """
-        Download results for a completed batch case search.
-
-        :param report_id: The report identifier.
-        :return: ReportList containing search results.
-        """
-        return self.batch_case_search.download(report_id)
-
-    def get_batch_party_results(self, report_id: str) -> ReportList:
-        """
-        Download results for a completed batch party search.
-
-        :param report_id: The report identifier.
-        :return: ReportList containing search results.
-        """
-        return self.batch_party_search.download(report_id)
-
-    def delete_batch_case(self, report_id: str) -> dict:
-        """
-        Delete a batch case search request by report ID.
-
-        :param report_id: The report identifier.
-        :return: Dictionary with deletion status.
-        """
-        return self.batch_case_search.delete(report_id)
-
-    def delete_batch_party(self, report_id: str) -> dict:
-        """
-        Delete a batch party search request by report ID.
-
-        :param report_id: The report identifier.
-        :return: Dictionary with deletion status.
-        """
-        return self.batch_party_search.delete(report_id)
-
-    def list_batch_case_jobs(self) -> ReportList:
-        """
-        List all current batch case jobs.
-
-        :return: ReportList containing all current batch results.
-        """
-        return self.batch_case_search.listall()
-
-    def list_batch_party_jobs(self) -> ReportList:
-        """
-        List all current batch party jobs.
-
-        :return: ReportList containing all current batch results.
-        """
-        return self.batch_party_search.listall()

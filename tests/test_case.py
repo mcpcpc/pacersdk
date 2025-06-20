@@ -2,23 +2,23 @@ from unittest import main
 from unittest import TestCase
 from unittest.mock import patch
 
-from pacersdk.services.case_search import CaseSearchService
+from pacersdk.services.case import CaseService
 
 
-class TestCaseSearchService(TestCase):
+class TestCaseService(TestCase):
     def setUp(self):
-        self.service = CaseSearchService(
+        self.service = CaseService(
             lambda: "mock_token",
             {"pclapiurl": "http://example.com"},
             "mock_token",
         )
 
-    @patch("pacersdk.services.case_search.PCLSession.post")
+    @patch("pacersdk.services.case.PCLSession.post")
     def test_search(self, mock_post):
         self.service.search("request")
         mock_post.assert_called_once()
 
-    @patch("pacersdk.services.case_search.PCLSession.post")
+    @patch("pacersdk.services.case.PCLSession.post")
     def test_search_with_sort(self, mock_post):
         sort = [
             {"field": "caseYear", "order": "DESC"},

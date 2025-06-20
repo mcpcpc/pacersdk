@@ -2,23 +2,23 @@ from unittest import main
 from unittest import TestCase
 from unittest.mock import patch
 
-from pacersdk.services.party_search import PartySearchService
+from pacersdk.services.party import PartyService
 
 
 class TestPartySearchService(TestCase):
     def setUp(self):
-        self.service = PartySearchService(
+        self.service = PartyService(
             lambda: "mock_token",
             {"pclapiurl": "http://example.com"},
             "mock_token",
         )
 
-    @patch("pacersdk.services.party_search.PCLSession.post")
+    @patch("pacersdk.services.party.PCLSession.post")
     def test_search(self, mock_post):
         self.service.search("request")
         mock_post.assert_called_once()
 
-    @patch("pacersdk.services.party_search.PCLSession.post")
+    @patch("pacersdk.services.party.PCLSession.post")
     def test_search_with_sort(self, mock_post):
         sort = [
             {"field": "caseYear", "order": "DESC"},

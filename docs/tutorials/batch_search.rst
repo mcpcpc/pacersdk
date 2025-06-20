@@ -15,17 +15,17 @@ Example:
         environment="qa"
     )
 
-    response = client.submit_batch_case({
+    response = client.batch_case.submit({
         "caseTitle": "Acme"
     })
 
     report_id = response.get("reportId")
 
     # Check status
-    status = client.get_batch_case_status(report_id)
+    status = client.batch_case.status(report_id)
     print(status)
 
     # Download results when complete
     if status["status"] == "COMPLETED":
-        results = client.get_batch_case_result(report_id)
+        results = client.batch_case.download(report_id)
         print(results)

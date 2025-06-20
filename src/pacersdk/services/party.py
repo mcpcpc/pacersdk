@@ -14,7 +14,7 @@ from ..models.sort import PartyField
 from ..session import PCLSession
 
 
-class PartySearchService:
+class PartyService:
     """
     Provides access to the party search API endpoint.
     """

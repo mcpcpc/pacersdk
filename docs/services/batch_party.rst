@@ -1,7 +1,7 @@
-Case Search Service
+Batch Party Service
 ===================
 
-.. automodule:: pacersdk.services.case_search
+.. automodule:: pacersdk.services.batch_party
    :members:
    :undoc-members:
    :show-inheritance:

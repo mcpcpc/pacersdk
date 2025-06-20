@@ -11,7 +11,7 @@ from ..models.reports import ReportInfo
 from ..models.reports import ReportList
 
 
-class BatchPartySearchService:
+class BatchPartyService:
     """
     Provides access to the batch party search API endpoint.
     """
