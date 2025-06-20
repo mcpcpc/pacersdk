@@ -12,3 +12,4 @@ Models
    query
    reports
    sort
+   types
