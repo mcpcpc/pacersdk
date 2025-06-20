@@ -100,5 +100,5 @@ Contents
    :maxdepth: 1
    :caption: Project Information:
 
-   contribute
+   contributing
    lic
