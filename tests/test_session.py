@@ -69,7 +69,7 @@ class TestPCLSession(TestCase):
 
     @patch.object(PCLSession, "_request")
     def test_get_calls_request(self, mock_request):
-        self.mock_request.return_value = {"ok": True}
+        mock_request.return_value = {"ok": True}
         result = self.session.get("/test")
         self.assertEqual(result["ok"], True)
         mock_request.assert_called_once()
