@@ -82,7 +82,7 @@ Contents
    tutorials/immediate_search
    tutorials/batch_search
    tutorials/sorting 
-   tutorials/mfa
+   tutorials/multi_factor_authentication
    tutorials/best_practices
 
 .. toctree::
