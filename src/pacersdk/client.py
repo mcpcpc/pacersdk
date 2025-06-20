@@ -51,12 +51,8 @@ class PCLClient:
         )
         self.token_provider = self.authenticator.get_token
         token = self.token_provider()
-        self.case_search = CaseSearchService(
-            self.token_provider, self.config, token
-        )
-        self.party_search = PartySearchService(
-            self.token_provider, self.config, token
-        )
+        self.case_search = CaseSearchService(self.token_provider, self.config, token)
+        self.party_search = PartySearchService(self.token_provider, self.config, token)
         self.batch_case_search = BatchCaseSearchService(
             self.token_provider, self.config, token
         )
