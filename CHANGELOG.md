@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Missing Types documentation.
 
+### Changed
+
+- Client service method names.
+
 ## [0.0.5] - 2025-06-19
 
 ### Changed
