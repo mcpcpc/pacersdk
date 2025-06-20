@@ -32,7 +32,7 @@ class PCLClient:
         case_search: CaseSearchService = None,
         party_search: PartySearchService = None,
         batch_case_search: BatchCaseSearchService = None,
-        batch_party_search: BatchPartySearchService = None
+        batch_party_search: BatchPartySearchService = None,
     ) -> None:
         """
         Initialize the PACER Case Locator client with optional overrides for authentication and service layers.

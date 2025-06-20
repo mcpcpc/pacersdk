@@ -30,12 +30,16 @@ class TestPCLClient(TestCase):
     def test_search_cases(self):
         criteria = CourtCaseSearchCriteria()
         self.client.search_cases(criteria)
-        self.mock_case_search.search.assert_called_once_with(criteria, page=0, sort=None)
+        self.mock_case_search.search.assert_called_once_with(
+            criteria, page=0, sort=None
+        )
 
     def test_search_parties(self):
         criteria = PartySearchCriteria()
         self.client.search_parties(criteria)
-        self.mock_party_search.search.assert_called_once_with(criteria, page=0, sort=None)
+        self.mock_party_search.search.assert_called_once_with(
+            criteria, page=0, sort=None
+        )
 
     def test_submit_batch_case(self):
         criteria = CourtCaseSearchCriteria()
