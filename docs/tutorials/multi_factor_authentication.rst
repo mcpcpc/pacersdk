@@ -1,5 +1,5 @@
-Multi-Factor Authentication (MFA)
-=================================
+Multi-Factor Authentication
+===========================
 
 PACER supports multi-factor authentication (MFA) using time-based one-time
 passwords (TOTP). This library supports MFA by allowing you to provide a
