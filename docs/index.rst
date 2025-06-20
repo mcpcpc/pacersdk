@@ -51,7 +51,7 @@ Perform a basic case search:
        password="your_password",
        environment="qa"
    )
-   results = client.search_cases({
+   results = client.case.search({
        "caseTitle": "Smith",
        "courtId": ["cacd"]
    })
@@ -100,5 +100,5 @@ Contents
    :maxdepth: 1
    :caption: Project Information:
 
-   contribute
+   contributing
    lic

@@ -37,7 +37,7 @@ case type (ascending):
         {"field": "caseType", "order": "ASC"},
     ]
 
-    response = client.search_cases(criteria, sort=sort_fields)
+    response = client.case.search(criteria, sort=sort_fields)
     print(response)
 
 Important Notes
@@ -50,5 +50,5 @@ Important Notes
 
 For available sortable fields, see the library reference documentation for:
 
-- :class:`pacersdk.models.sort.SortableCaseField`
-- :class:`pacersdk.models.sort.SortablePartyField`
+- :class:`pacersdk.models.sort.CaseField`
+- :class:`pacersdk.models.sort.PartyField`

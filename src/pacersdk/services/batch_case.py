@@ -11,7 +11,7 @@ from ..models.reports import ReportInfo
 from ..models.reports import ReportList
 
 
-class BatchCaseSearchService:
+class BatchCaseService:
     """
     Provides access to the batch case search API endpoint.
     """

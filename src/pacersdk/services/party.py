@@ -10,11 +10,11 @@ from urllib.parse import urlencode
 
 from ..models.query import PartySearchCriteria
 from ..models.reports import ReportList
-from ..models.sort import SortablePartyField
+from ..models.sort import PartyField
 from ..session import PCLSession
 
 
-class PartySearchService:
+class PartyService:
     """
     Provides access to the party search API endpoint.
     """
@@ -38,7 +38,7 @@ class PartySearchService:
         self,
         criteria: PartySearchCriteria,
         page: int = 0,
-        sort: Optional[List[SortablePartyField]] = None,
+        sort: Optional[List[PartyField]] = None,
     ) -> ReportList:
         """
         Perform a party search.

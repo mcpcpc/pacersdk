@@ -1,8 +1,7 @@
-Client
-======
+Types
+=====
 
-.. automodule:: pacersdk.client
+.. automodule:: pacersdk.models.types
    :members:
    :undoc-members:
    :show-inheritance:
- 

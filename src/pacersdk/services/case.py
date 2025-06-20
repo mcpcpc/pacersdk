@@ -10,11 +10,11 @@ from urllib.parse import urlencode
 
 from ..models.query import CourtCaseSearchCriteria
 from ..models.reports import ReportList
-from ..models.sort import SortableCaseField
+from ..models.sort import CaseField
 from ..session import PCLSession
 
 
-class CaseSearchService:
+class CaseService:
     """
     Provides access to the case search API endpoint.
     """
@@ -38,7 +38,7 @@ class CaseSearchService:
         self,
         criteria: CourtCaseSearchCriteria,
         page: int = 0,
-        sort: Optional[List[SortableCaseField]] = None,
+        sort: Optional[List[CaseField]] = None,
     ) -> ReportList:
         """
         Perform a case search.

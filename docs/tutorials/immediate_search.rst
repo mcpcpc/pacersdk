@@ -8,7 +8,7 @@ queries return results instantly and are suited for simple lookups.
 Case Search
 -----------
 
-Use `PCLClient.search_cases()` to search for cases by various parameters.
+Use `PCLClient.case.search()` to search for cases by various parameters.
 
 Example:
 
@@ -22,7 +22,7 @@ Example:
         environment="qa"
     )
 
-    result = client.search_cases({
+    result = client.case.search({
         "caseTitle": "Smith vs"
     })
     print(result)
@@ -30,7 +30,7 @@ Example:
 Party Search
 ------------
 
-Use `PCLClient.search_parties()` to find parties by name or role.
+Use `PCLClient.party.search()` to find parties by name or role.
 
 Example:
 
@@ -44,7 +44,7 @@ Example:
         environment="qa"
     )
 
-    result = client.search_parties({
+    result = client.party.search({
         "lastName": "Johnson"
     })
     print(result)
