@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Missing default file error when using PyPI.
+- Missing default.json file error when installing from PyPI.
 
 ## [0.0.6] - 2025-06-20
 
