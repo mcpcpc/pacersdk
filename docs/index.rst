@@ -81,7 +81,7 @@ Contents
    tutorials/installation
    tutorials/immediate_search
    tutorials/batch_search
-   tutorials/sorting 
+   tutorials/sorting_results 
    tutorials/multi_factor_authentication
    tutorials/best_practices
 

@@ -1,5 +1,5 @@
-Sorting
-=======
+Sorting Results
+===============
 
 The PACER API supports sorting on many fields for both case and party searches.
 This tutorial explains how to apply sorting parameters using the `pacersdk`
