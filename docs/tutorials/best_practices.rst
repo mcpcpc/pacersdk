@@ -35,7 +35,7 @@ Avoid hardcoding your PACER credentials or secrets directly into your scripts or
          username=username,
          password=password,
          secret=secret,
-         environment="prod"
+         environment="qa"
      )
 
 - Never commit secrets to version control. Use `.gitignore` to exclude `.env` or config files.
