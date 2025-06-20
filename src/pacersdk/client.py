@@ -49,15 +49,15 @@ class PCLClient:
             client_code=client_code,
             redaction=redaction,
         )
-        token_provider = self.authenticator.get_token
-        token = self.authenticator.get_token()
-        self.case_search = CaseSearchService(token_provider, self.config, token)
-        self.party_search = PartySearchService(token_provider, self.config, token)
+        self.token_provider = self.authenticator.get_token
+        token = self.token_provider()
+        self.case_search = CaseSearchService(self.token_provider, self.config, token)
+        self.party_search = PartySearchService(self.token_provider, self.config, token)
         self.batch_case_search = BatchCaseSearchService(
-            token_provider, self.config, token
+            self.token_provider, self.config, token
         )
         self.batch_party_search = BatchPartySearchService(
-            token_provider, self.config, token
+            self.token_provider, self.config, token
         )
 
     def logout(self) -> None:
