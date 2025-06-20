@@ -1,0 +1,7 @@
+include CHANGELOG.md
+include LICENSE
+include src/pacersdk/default.json
+graft src/pacersdk/models
+graft src/pacersdk/services
+graft tests
+global-exclude *.pyc
