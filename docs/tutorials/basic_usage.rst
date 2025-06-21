@@ -10,7 +10,7 @@ Before performing any searches, create a client instance using your PACER creden
 
 .. code-block:: python
 
-    from pacersdk.client import PCLClient
+    from pacersdk import PCLClient
 
     client = PCLClient(
         username="your-username",

@@ -29,7 +29,7 @@ Avoid hardcoding your PACER credentials or secrets directly into your scripts or
      password = getenv("PACER_PASSWORD")
      secret = getenv("PACER_MFA_SECRET")
 
-     from pacersdk.client import PCLClient
+     from pacersdk import PCLClient
 
      client = PCLClient(
          username=username,

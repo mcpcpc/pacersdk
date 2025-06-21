@@ -44,7 +44,7 @@ Perform a basic case search:
 
 .. code-block:: python
 
-   from pacersdk.client import PCLClient
+   from pacersdk import PCLClient
 
    client = PCLClient(
        username="your_username",
