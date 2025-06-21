@@ -6,9 +6,10 @@ from typing import Callable
 from typing import cast
 from typing import Optional
 
-from ..session import PCLSession
+from ..models.query import CourtCaseSearchCriteria
 from ..models.reports import ReportInfo
 from ..models.reports import ReportList
+from ..session import PCLSession
 
 
 class BatchCaseService:
@@ -31,16 +32,16 @@ class BatchCaseService:
         """
         self.session = PCLSession(token_provider, config, 1, token)
 
-    def submit(self, request: dict) -> ReportInfo:
+    def submit(self, criteria: CourtCaseSearchCriteria) -> ReportInfo:
         """
         Submit a batch case search job.
 
-        :param request: A batch case search request model.
+        :param criteria: CourtCaseSearchCriteria with optional filters.
         :return: ReportInfo object.
         """
         return cast(
             ReportInfo,
-            self.session.post("/pcl-public-api/rest/cases/download", request),
+            self.session.post("/pcl-public-api/rest/cases/download", criteria),
         )
 
     def status(self, report_id: str) -> ReportList:
