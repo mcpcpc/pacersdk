@@ -2,10 +2,7 @@
 Service for performing party searches via the PACER Case Locator API.
 """
 
-from typing import Callable
-from typing import cast
-from typing import List
-from typing import Optional
+from typing import Callable, cast, List, Optional
 from urllib.parse import urlencode
 
 from ..models.query import PartySearchCriteria
@@ -26,7 +23,7 @@ class PartyService:
         token: Optional[str] = None,
     ) -> None:
         """
-        Initialize the PartySearchService.
+        Initialize the PartyService.
 
         :param token_provider: Callable returning a valid CSO token.
         :param config: Dictionary with base API URL.

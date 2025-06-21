@@ -4,8 +4,7 @@ Handles one-time password (OTP) generation.
 
 from base64 import b32decode
 from hmac import new
-from struct import pack
-from struct import unpack
+from struct import pack, unpack
 from time import time
 
 

@@ -4,10 +4,8 @@ Client interface to the PACER Case Locator API.
 
 from .auth import Authenticator
 from .config import get_config
-from .models.query import CourtCaseSearchCriteria
-from .models.query import PartySearchCriteria
-from .models.reports import ReportList
-from .models.reports import ReportInfo
+from .models.query import CourtCaseSearchCriteria, PartySearchCriteria
+from .models.reports import ReportInfo, ReportList
 from .services.case import CaseService
 from .services.party import PartyService
 from .services.batch_case import BatchCaseService

@@ -5,14 +5,10 @@ Includes reusable criteria structures for querying the PACER system,
 including `GenericSearchCriteria`, `CombinedSearchCriteria`, and others.
 """
 
-from typing import List
-from typing import Optional
-from typing import TypedDict
+from typing import List, Optional, TypedDict
 
-from .billing import PageInfo
-from .billing import Receipt
-from .types import Character
-from .types import Date
+from .billing import PageInfo, Receipt
+from .types import Character, Date
 
 
 class GenericSearchCriteria(TypedDict, total=False):

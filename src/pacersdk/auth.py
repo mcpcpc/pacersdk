@@ -2,11 +2,9 @@
 Authentication handler for PACER Case Locator API using CSO credentials.
 """
 
-from json import dumps
-from json import loads
+from json import dumps, loads
 from urllib.error import HTTPError
-from urllib.request import Request
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 from .otp import totp
 

@@ -2,13 +2,11 @@
 Service for submitting and managing batch case searches.
 """
 
-from typing import Callable
-from typing import cast
-from typing import Optional
+from typing import Callable, cast, Optional
 
+from ..models.query import CourtCaseSearchCriteria
+from ..models.reports import ReportInfo, ReportList
 from ..session import PCLSession
-from ..models.reports import ReportInfo
-from ..models.reports import ReportList
 
 
 class BatchCaseService:
@@ -23,7 +21,7 @@ class BatchCaseService:
         token: Optional[str] = None,
     ) -> None:
         """
-        Initialize the BatchCaseSearchService.
+        Initialize the BatchCaseService.
 
         :param token_provider: Callable returning a valid CSO token.
         :param config: Dictionary with API endpoint URLs.
@@ -31,16 +29,16 @@ class BatchCaseService:
         """
         self.session = PCLSession(token_provider, config, 1, token)
 
-    def submit(self, request: dict) -> ReportInfo:
+    def submit(self, criteria: CourtCaseSearchCriteria) -> ReportInfo:
         """
         Submit a batch case search job.
 
-        :param request: A batch case search request model.
+        :param criteria: CourtCaseSearchCriteria with optional filters.
         :return: ReportInfo object.
         """
         return cast(
             ReportInfo,
-            self.session.post("/pcl-public-api/rest/cases/download", request),
+            self.session.post("/pcl-public-api/rest/cases/download", criteria),
         )
 
     def status(self, report_id: str) -> ReportList:

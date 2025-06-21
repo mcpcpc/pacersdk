@@ -2,13 +2,11 @@
 Service for submitting and managing batch party searches.
 """
 
-from typing import Callable
-from typing import cast
-from typing import Optional
+from typing import Callable, cast, Optional
 
+from ..models.query import PartySearchCriteria
+from ..models.reports import ReportInfo, ReportList
 from ..session import PCLSession
-from ..models.reports import ReportInfo
-from ..models.reports import ReportList
 
 
 class BatchPartyService:
@@ -23,7 +21,7 @@ class BatchPartyService:
         token: Optional[str] = None,
     ) -> None:
         """
-        Initialize the BatchPartySearchService.
+        Initialize the BatchPartyService.
 
         :param token_provider: Callable returning a valid CSO token.
         :param config: Dictionary with API endpoint URLs.
@@ -31,16 +29,16 @@ class BatchPartyService:
         """
         self.session = PCLSession(token_provider, config, 1, token)
 
-    def submit(self, request: dict) -> ReportInfo:
+    def submit(self, criteria: PartySearchCriteria) -> ReportInfo:
         """
         Submit a batch party search job.
 
-        :param request: A batch party search request model.
+        :param criteria: PartySearchCriteria with optional filters.
         :return: ReportInfo object.
         """
         return cast(
             ReportInfo,
-            self.session.post("/pcl-public-api/rest/parties/download", request),
+            self.session.post("/pcl-public-api/rest/parties/download", criteria),
         )
 
     def status(self, report_id: str) -> ReportList:

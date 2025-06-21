@@ -5,12 +5,9 @@ Provides `CourtList` and `Courts` structures containing metadata for
 paginated court search responses, including court identifiers and names.
 """
 
-from typing import List
-from typing import Optional
-from typing import TypedDict
+from typing import List, Optional, TypedDict
 
-from .billing import PageInfo
-from .billing import Receipt
+from .billing import PageInfo, Receipt
 from .query import CourtSearchResult
 
 
