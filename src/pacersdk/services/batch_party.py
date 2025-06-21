@@ -24,7 +24,7 @@ class BatchPartyService:
         token: Optional[str] = None,
     ) -> None:
         """
-        Initialize the BatchPartySearchService.
+        Initialize the BatchPartyService.
 
         :param token_provider: Callable returning a valid CSO token.
         :param config: Dictionary with API endpoint URLs.

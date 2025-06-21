@@ -24,7 +24,7 @@ class BatchCaseService:
         token: Optional[str] = None,
     ) -> None:
         """
-        Initialize the BatchCaseSearchService.
+        Initialize the BatchCaseService.
 
         :param token_provider: Callable returning a valid CSO token.
         :param config: Dictionary with API endpoint URLs.

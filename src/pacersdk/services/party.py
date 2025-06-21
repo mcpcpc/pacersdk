@@ -26,7 +26,7 @@ class PartyService:
         token: Optional[str] = None,
     ) -> None:
         """
-        Initialize the PartySearchService.
+        Initialize the PartyService.
 
         :param token_provider: Callable returning a valid CSO token.
         :param config: Dictionary with base API URL.

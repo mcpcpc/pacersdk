@@ -26,7 +26,7 @@ class CaseService:
         token: Optional[str] = None,
     ) -> None:
         """
-        Initialize the CaseSearchService.
+        Initialize the CaseService.
 
         :param token_provider: Callable returning a valid CSO token.
         :param config: Dictionary with base API URL.
