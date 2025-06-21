@@ -132,8 +132,3 @@ Notes
 
 - Ensure your account has access to PACER Case Locator and the correct court IDs.
 - Batch responses may be delayed depending on PACER load and queueing.
-
-Next Steps
-----------
-
-- :doc:`best_practices` – Security and developement guidelines.

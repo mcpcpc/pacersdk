@@ -53,8 +53,3 @@ To install from source (e.g. to contribute or use the latest version):
       pip install -e .
 
 This setup allows you to modify the code and have changes reflected immediately.
-
-Next Steps
-----------
-
-- :doc:`basic_usage` – Learn how to use pacersdk in your project
