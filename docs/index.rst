@@ -66,10 +66,10 @@ Perform a basic case search:
 Resources
 ---------
 
-- `PACER website <https://pacer.uscourts.gov>`__
-- `PCL API documentation <https://pacer.uscourts.gov/sites/default/files/files/PCL-API-Document_4.pdf>`__
-- `PACER authentication API <https://pacer.uscourts.gov/sites/default/files/files/PACER%20Authentication%20API-2025_v2_0.pdf>`__
-- `PACER help center <https://pacer.uscourts.gov/help/pacer>`__
+- `PACER Website <https://pacer.uscourts.gov>`__
+- `PCL API User Guide <https://pacer.uscourts.gov/sites/default/files/files/PCL-API-Document_4.pdf>`__
+- `PACER Authentication API User Guide <https://pacer.uscourts.gov/sites/default/files/files/PACER%20Authentication%20API-2025_v2_0.pdf>`__
+- `How to Use PACER <https://pacer.uscourts.gov/help/pacer>`__
 
 Contents
 --------
