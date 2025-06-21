@@ -82,6 +82,7 @@ Contents
    tutorials/basic_usage
    tutorials/sorting_results 
    tutorials/multi_factor_authentication
+   tutorials/logging
    tutorials/best_practices
 
 .. toctree::

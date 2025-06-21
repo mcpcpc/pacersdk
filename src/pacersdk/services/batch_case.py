@@ -2,11 +2,14 @@
 Service for submitting and managing batch case searches.
 """
 
+from logging import getLogger
 from typing import Callable, cast, Optional
 
 from ..models.query import CourtCaseSearchCriteria
 from ..models.reports import ReportInfo, ReportList
 from ..session import PCLSession
+
+logger = getLogger(__name__)
 
 
 class BatchCaseService:
@@ -36,6 +39,7 @@ class BatchCaseService:
         :param criteria: CourtCaseSearchCriteria with optional filters.
         :return: ReportInfo object.
         """
+        logger.debug("Submitting batch case search job")
         return cast(
             ReportInfo,
             self.session.post("/pcl-public-api/rest/cases/download", criteria),
@@ -48,6 +52,7 @@ class BatchCaseService:
         :param report_id: The report identifier.
         :return: ReportList object.
         """
+        logger.debug("Checking status for report ID: %s", report_id)
         return cast(
             ReportList,
             self.session.get(f"/pcl-public-api/rest/cases/download/status/{report_id}"),
@@ -60,6 +65,7 @@ class BatchCaseService:
         :param report_id: The report identifier.
         :return: ReportList object.
         """
+        logger.debug("Downloading report with ID: %s", report_id)
         return cast(
             ReportList,
             self.session.get(f"/pcl-public-api/rest/cases/download/{report_id}"),
@@ -72,6 +78,7 @@ class BatchCaseService:
         :param report_id: Batch report identifier.
         :return: Response status or message.
         """
+        logger.debug("Deleting report with ID: %s", report_id)
         return self.session.delete(f"/pcl-public-api/rest/cases/reports/{report_id}")
 
     def listall(self) -> ReportList:
@@ -80,4 +87,5 @@ class BatchCaseService:
 
         :return: ReportList object.
         """
+        logger.debug("Listing all batch case reports")
         return cast(ReportList, self.session.get("/pcl-public-api/rest/cases/reports"))

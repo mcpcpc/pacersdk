@@ -3,7 +3,7 @@ Client interface to the PACER Case Locator API.
 """
 
 from .auth import Authenticator
-from .config import get_config
+from .config import ConfigLoader
 from .models.query import CourtCaseSearchCriteria, PartySearchCriteria
 from .models.reports import ReportInfo, ReportList
 from .services.case import CaseService
@@ -38,7 +38,9 @@ class PCLClient:
         :param redaction: Optional flag to indicate redaction compliance.
         :param config_path: Optional path to a custom JSON config file.
         """
-        self.config = get_config(environment, config_path)
+        self._config_loader = ConfigLoader(config_path)
+
+        #: Instance of :class:`pacersdk.auth.Authenticator`
         self.authenticator = Authenticator(
             username=username,
             password=password,
@@ -47,20 +49,22 @@ class PCLClient:
             client_code=client_code,
             redaction=redaction,
         )
+
         self.token_provider = self.authenticator.get_token
         token = self.token_provider()
+        config = self._config_loader.get(environment)
 
         #: Instance of :class:`pacersdk.services.case.CaseService`
-        self.case = CaseService(self.token_provider, self.config, token)
+        self.case = CaseService(self.token_provider, config, token)
 
         #: Instance of :class:`pacersdk.services.party.PartyService`
-        self.party = PartyService(self.token_provider, self.config, token)
+        self.party = PartyService(self.token_provider, config, token)
 
         #: Instance of :class:`pacersdk.services.batch_case.BatchCaseService`
-        self.batch_case = BatchCaseService(self.token_provider, self.config, token)
+        self.batch_case = BatchCaseService(self.token_provider, config, token)
 
         #: Instance of :class:`pacersdk.services.batch_party.BatchPartyService`
-        self.batch_party = BatchPartyService(self.token_provider, self.config, token)
+        self.batch_party = BatchPartyService(self.token_provider, config, token)
 
     def logout(self) -> None:
         """

@@ -2,11 +2,14 @@
 Service for submitting and managing batch party searches.
 """
 
+from logging import getLogger
 from typing import Callable, cast, Optional
 
 from ..models.query import PartySearchCriteria
 from ..models.reports import ReportInfo, ReportList
 from ..session import PCLSession
+
+logger = getLogger(__name__)
 
 
 class BatchPartyService:
@@ -36,6 +39,7 @@ class BatchPartyService:
         :param criteria: PartySearchCriteria with optional filters.
         :return: ReportInfo object.
         """
+        logger.debug("Submitting batch party search job")
         return cast(
             ReportInfo,
             self.session.post("/pcl-public-api/rest/parties/download", criteria),
@@ -48,6 +52,7 @@ class BatchPartyService:
         :param report_id: The report identifier.
         :return: ReportList object.
         """
+        logger.debug("Checking status for report ID: %s", report_id)
         return cast(
             ReportList,
             self.session.get(
@@ -62,6 +67,7 @@ class BatchPartyService:
         :param report_id: The report identifier.
         :return: ReportList object.
         """
+        logger.debug("Downloading report with ID: %s", report_id)
         return cast(
             ReportList,
             self.session.get(f"/pcl-public-api/rest/parties/download/{report_id}"),
@@ -74,6 +80,7 @@ class BatchPartyService:
         :param report_id: Batch report identifier.
         :return: Response status or message.
         """
+        logger.debug("Deleting report with ID: %s", report_id)
         return self.session.delete(f"/pcl-public-api/rest/parties/reports/{report_id}")
 
     def listall(self) -> ReportList:
@@ -82,6 +89,7 @@ class BatchPartyService:
 
         :return: ReportList object.
         """
+        logger.debug("Listing all batch party reports")
         return cast(
             ReportList, self.session.get("/pcl-public-api/rest/parties/reports")
         )
