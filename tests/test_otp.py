@@ -1,9 +1,7 @@
 from time import sleep
-from unittest import main
-from unittest import TestCase
+from unittest import main, TestCase
 
-from pacersdk.otp import hotp
-from pacersdk.otp import totp
+from pacersdk.otp import hotp, totp
 
 
 class TestOTP(TestCase):
