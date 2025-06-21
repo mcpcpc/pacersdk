@@ -62,6 +62,9 @@ html_theme_options = {
             "class": "",
         },
     ],
+    "source_repository": "https://github.com/mcpcpc/pacersdk/",
+    "source_branch": "main",
+    "source_directory": "docs/",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
