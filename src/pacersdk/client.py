@@ -39,20 +39,20 @@ class PCLClient:
         :param config_path: Optional path to a custom JSON config file.
         """
         self._config_loader = ConfigLoader(config_path)
+        config = self._config_loader.get(environment)
 
         #: Instance of :class:`pacersdk.auth.Authenticator`
         self.authenticator = Authenticator(
             username=username,
             password=password,
             secret=secret,
-            config=self.config,
+            config=config,
             client_code=client_code,
             redaction=redaction,
         )
 
         self.token_provider = self.authenticator.get_token
         token = self.token_provider()
-        config = self._config_loader.get(environment)
 
         #: Instance of :class:`pacersdk.services.case.CaseService`
         self.case = CaseService(self.token_provider, config, token)
