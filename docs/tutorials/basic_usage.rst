@@ -64,11 +64,17 @@ Search criteria are passed as a dictionary using the relevant model: `CourtCaseS
 Batch Search
 ------------
 
-Batch searches function similarly to immediate searches except that the results of batch searches
-are queued for later download. The benefit of batch searches is that they allow for a much larger
-set of search results. In addition, immediate searches require multiple requests to page through
-results, while batch searches return all rows in a single request. The maximum number of batch
-search results is 108,000.
+Batch searches allow you to request a large set of search results (up to **108,000 items**) that are 
+queued and processed asynchronously. Unlike immediate searches, which require manual pagination,
+batch searches return **all results in one downloadable report** after processing completes.
+
+Each batch search submission returns a `reportId`, which you can use to:
+
+- Check job status (e.g. `RUNNING`, `WAITING`, `COMPLETED`)
+- Download results once complete
+- Delete results once consumed (recommended)
+
+Batch search criteria are submitted using the same structure as immediate searches.
 
 **Batch Case Search:**
 
@@ -78,11 +84,11 @@ search results is 108,000.
 
     criteria: CourtCaseSearchCriteria = {
         "caseNumberFull": "12-20340",
-        "courtId": ["insbk",]
+        "courtId": ["insbk"]
     }
 
     report_info = client.batch_case.submit(criteria)
-    print(report_info)
+    print("Submitted batch case search with report ID:", report_info["reportId"])
 
 **Batch Party Search:**
 
@@ -92,11 +98,34 @@ search results is 108,000.
 
     criteria: PartySearchCriteria = {
         "lastName": "smith",
-        "ssn": "123456789",
+        "ssn": "123456789"
     }
 
-    report_info = client.batch_case.submit(criteria)
-    print(report_info)
+    report_info = client.batch_party.submit(criteria)
+    print("Submitted batch party search with report ID:", report_info["reportId"])
+
+**Check Status of a Batch Job:**
+
+.. code-block:: python
+
+    report_id = report_info["reportId"]
+    status = client.batch_case.status(report_id)
+    print("Status:", status["status"])
+
+**Download Results (when status is COMPLETED):**
+
+.. code-block:: python
+
+    results = client.batch_case.download(report_id)
+    for case in results["content"]:
+        print(case["caseNumberFull"], "-", case["caseTitle"])
+
+**Delete Batch Job (optional, but recommended):**
+
+.. code-block:: python
+
+    client.batch_case.delete(report_id)
+    print("Deleted batch report:", report_id)
 
 Notes
 -----
