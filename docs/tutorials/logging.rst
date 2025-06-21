@@ -31,16 +31,16 @@ Each module in the SDK uses its own logger based on its import path:
 
 - ``pacersdk.client``
 - ``pacersdk.auth``
-- ``pacersdk.services.case.search``
-- ``pacersdk.services.case.batch``
-- ``pacersdk.services.party.search``
-- ``pacersdk.services.party.batch``
+- ``pacersdk.services.case``
+- ``pacersdk.services.batch_case``
+- ``pacersdk.services.party``
+- ``pacersdk.services.batch_party``
 
 You can target a specific component:
 
 .. code-block:: python
 
-    logging.getLogger("pacersdk.services.case.search").setLevel(logging.DEBUG)
+    logging.getLogger("pacersdk.services.case").setLevel(logging.DEBUG)
 
 Structured Logging
 ------------------
