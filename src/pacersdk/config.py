@@ -14,10 +14,6 @@ class ConfigLoader:
     This class reads configuration values for different environments (e.g., "qa", "prod")
     from either a bundled `default.json` or a user-supplied path.
 
-    Example:
-        loader = ConfigLoader()
-        config = loader.get("prod")
-
     :param path: Optional path to a JSON file with configurations.
     :type path: str or None
     """
