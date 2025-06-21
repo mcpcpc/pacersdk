@@ -85,7 +85,7 @@ Batch endpoints are ideal for submitting large searches asynchronously. Use them
 - You're retrieving many cases or parties at once.
 - You don’t need immediate results and can poll for completion.
 
-For more details, see the :doc:`batch_search` guide.
+For more details, see the :doc:`basic_usage` guide.
 
 Protect Sensitive Information
 -----------------------------
