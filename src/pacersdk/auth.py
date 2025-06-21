@@ -2,11 +2,14 @@
 Authentication handler for PACER Case Locator API using CSO credentials.
 """
 
+from logging import getLogger
 from json import dumps, loads
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 from .otp import totp
+
+logger = getLogger(__name__)
 
 
 class Authenticator:
@@ -47,6 +50,7 @@ class Authenticator:
 
         :return: A valid session token string.
         """
+        logger.debug("Requesting new CSO token for user: %s", self.username)
         host = self.config["authenticationurl"]
         body = {"loginId": self.username, "password": self.password}
         if isinstance(self.secret, str):
