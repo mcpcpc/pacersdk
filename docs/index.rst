@@ -78,9 +78,8 @@ Contents
    :maxdepth: 1
    :caption: Tutorials:
 
-   tutorials/installation
-   tutorials/immediate_search
-   tutorials/batch_search
+   tutorials/getting_started
+   tutorials/basic_usage
    tutorials/sorting_results 
    tutorials/multi_factor_authentication
    tutorials/best_practices

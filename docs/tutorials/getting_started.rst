@@ -1,10 +1,12 @@
-Installation
-============
+Getting Started
+===============
 
-You can install `pacersdk` using pip or directly from source.
+This guide helps you get up and running with `pacersdk`.
+It covers installation via pip or source, setting up a virtual environment,
+and preparing your environment for development or use.
 
-From PyPI
----------
+Install from PyPI
+-----------------
 
 The simplest method is to install from the Python Package Index:
 
@@ -12,8 +14,8 @@ The simplest method is to install from the Python Package Index:
 
     pip install -U pacersdk
 
-From Source
------------
+Install from Source
+-------------------
 
 To install from source (e.g. to contribute or use the latest version):
 
@@ -51,3 +53,9 @@ To install from source (e.g. to contribute or use the latest version):
       pip install -e .
 
 This setup allows you to modify the code and have changes reflected immediately.
+
+Next Steps
+----------
+
+- :doc:`usage` – Learn how to use pacersdk in your project
+- :doc:`api_reference` – Explore the available API classes and methods
