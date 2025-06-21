@@ -100,5 +100,4 @@ Notes
 Next Steps
 ----------
 
-- :doc:`api_reference` – Dive into the full API
 - :doc:`getting_started` – Review setup instructions

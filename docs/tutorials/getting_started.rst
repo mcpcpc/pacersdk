@@ -58,4 +58,3 @@ Next Steps
 ----------
 
 - :doc:`basic_usage` – Learn how to use pacersdk in your project
-- :doc:`api_reference` – Explore the available API classes and methods
