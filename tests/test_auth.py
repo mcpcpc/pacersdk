@@ -1,8 +1,6 @@
 from io import BytesIO
-from unittest import main
-from unittest import TestCase
-from unittest.mock import MagicMock
-from unittest.mock import patch
+from unittest import main, TestCase
+from unittest.mock import MagicMock, patch
 from urllib.error import HTTPError
 
 from pacersdk.auth import Authenticator
