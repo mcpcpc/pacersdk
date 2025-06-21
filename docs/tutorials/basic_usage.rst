@@ -23,9 +23,12 @@ Before performing any searches, create a client instance using your PACER creden
 Immediate Search (Single Case or Party)
 ---------------------------------------
 
-Immediate searches return results in groups of 54. Each group of immediate search results is
-referred to as a "page." The maximum search result size for an immediate search is 5,400 items
-(cases or parties) or 100 pages.
+Immediate searches return results in groups of 54. Each group is referred to as a "page."
+The maximum number of results returned by an immediate search is **5,400 items** (100 pages).
+If more results are available beyond the first page, you must request additional pages explicitly.
+
+Immediate searches are ideal for smaller queries or when users want fast access to limited sets of results. 
+Search criteria are passed as a dictionary using the relevant model: `CourtCaseSearchCriteria` or `PartySearchCriteria`.
 
 **Case Search:**
 
@@ -38,7 +41,9 @@ referred to as a "page." The maximum search result size for an immediate search 
     }
 
     report_list = client.case.search(criteria)
-    print(report_list)
+
+    for case in report_list["content"]:
+        print(case["caseNumberFull"], "-", case["caseTitle"])
 
 **Party Search:**
 
@@ -52,7 +57,9 @@ referred to as a "page." The maximum search result size for an immediate search 
     }
 
     report_list = client.party.search(criteria)
-    print(report_list)
+
+    for party in report_list["content"]:
+        print(party["firstName"], party["lastName"], "--", party["caseNumberFull"])
 
 Batch Search
 ------------
