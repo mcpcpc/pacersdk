@@ -21,11 +21,6 @@ To authenticate with MFA enabled, provide your TOTP secret to the client:
         environment="qa"
     )
 
-    result = client.search_cases({
-        "caseTitle": "Smith"
-    })
-    print(result)
-
 Notes:
 
 - The TOTP secret is optional and only required if MFA is enabled on your PACER account.
