@@ -5,7 +5,7 @@ Handles HTTP communication with the PACER Case Locator API.
 from json import dumps, loads
 from typing import Any, Callable, Dict, Optional
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen 
+from urllib.request import Request, urlopen
 
 
 class PCLSession:

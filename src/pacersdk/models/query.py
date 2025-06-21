@@ -7,8 +7,8 @@ including `GenericSearchCriteria`, `CombinedSearchCriteria`, and others.
 
 from typing import List, Optional, TypedDict
 
-from .billing import PageInfo, Receipt 
-from .types import Character, Date 
+from .billing import PageInfo, Receipt
+from .types import Character, Date
 
 
 class GenericSearchCriteria(TypedDict, total=False):

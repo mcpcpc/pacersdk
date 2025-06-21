@@ -7,15 +7,15 @@ structures to support combined search and reporting functionality in PACER.
 
 from typing import List, Optional, TypedDict
 
-from .billing import PageInfo, Receipt 
+from .billing import PageInfo, Receipt
 from .query import (
     CombinedSearchCriteria,
     BasePartySearchCriteria,
     CourtCaseSearchCriteria,
     CourtCaseSearchResult,
-    PartySearchResult
-) 
-from .types import DateTime, Money 
+    PartySearchResult,
+)
+from .types import DateTime, Money
 
 
 class ReportSortInfo(TypedDict):

@@ -7,7 +7,7 @@ billing-related metadata and transaction receipts returned by the PACER API.
 
 from typing import TypedDict
 
-from .types import DateTime, Money 
+from .types import DateTime, Money
 
 
 class PageInfo(TypedDict):

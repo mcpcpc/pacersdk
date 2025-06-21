@@ -2,10 +2,10 @@
 Service for submitting and managing batch party searches.
 """
 
-from typing import Callable, cast, Optional 
+from typing import Callable, cast, Optional
 
 from ..models.query import PartySearchCriteria
-from ..models.reports import ReportInfo, ReportList 
+from ..models.reports import ReportInfo, ReportList
 from ..session import PCLSession
 
 

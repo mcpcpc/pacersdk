@@ -7,7 +7,7 @@ and grouped search results for litigants and other involved persons/entities.
 
 from typing import List, Optional, TypedDict
 
-from .billing import PageInfo, Receipt 
+from .billing import PageInfo, Receipt
 from .cases import CourtCase
 from .types import Date, JurisdictionType
 
