@@ -2,6 +2,7 @@
 Service for performing party searches via the PACER Case Locator API.
 """
 
+from logging import getLogger
 from typing import Callable, cast, List, Optional
 from urllib.parse import urlencode
 
@@ -9,6 +10,8 @@ from ..models.query import PartySearchCriteria
 from ..models.reports import ReportList
 from ..models.sort import PartyField
 from ..session import PCLSession
+
+logger = getLogger(__name__)
 
 
 class PartyService:
@@ -45,6 +48,7 @@ class PartyService:
         :param sort: Optional list of sort field/direction pairs.
         :return: ReportList containing search results.
         """
+        logger.debug("Searching for parties with request: %s", criteria)
         query = {"page": page}
         if isinstance(sort, list):
             query["sort"] = [f"{s['field']},{s['order']}" for s in sort]
