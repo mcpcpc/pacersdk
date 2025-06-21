@@ -5,8 +5,7 @@ Provides structures such as `CaseField` and `PartyField`
 to customize result ordering for PACER queries.
 """
 
-from typing import Literal
-from typing import TypedDict
+from typing import Literal, TypedDict 
 
 
 class CaseField(TypedDict):

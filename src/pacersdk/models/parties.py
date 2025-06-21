@@ -5,15 +5,11 @@ Defines `BaseParty`, `Party`, and `PartyList` to represent individual
 and grouped search results for litigants and other involved persons/entities.
 """
 
-from typing import List
-from typing import Optional
-from typing import TypedDict
+from typing import List, Optional, TypedDict
 
-from .billing import PageInfo
-from .billing import Receipt
+from .billing import PageInfo, Receipt 
 from .cases import CourtCase
-from .types import Date
-from .types import JurisdictionType
+from .types import Date, JurisdictionType
 
 
 class BaseParty(TypedDict):

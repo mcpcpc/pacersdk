@@ -2,15 +2,10 @@
 Handles HTTP communication with the PACER Case Locator API.
 """
 
-from json import dumps
-from json import loads
-from typing import Any
-from typing import Callable
-from typing import Dict
-from typing import Optional
+from json import dumps, loads
+from typing import Any, Callable, Dict, Optional
 from urllib.error import HTTPError
-from urllib.request import Request
-from urllib.request import urlopen
+from urllib.request import Request, urlopen 
 
 
 class PCLSession:

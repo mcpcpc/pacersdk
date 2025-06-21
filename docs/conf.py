@@ -48,7 +48,6 @@ exclude_patterns = ["_build"]
 # a list of builtin themes.
 #
 html_theme = "furo"
-#html_theme_options = {}
 html_theme_options = {
     "footer_icons": [
         {

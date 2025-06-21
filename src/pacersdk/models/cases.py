@@ -5,15 +5,10 @@ Defines `BaseCourtCase`, `CourtCase`, and related structures used to
 describe court case information, including jurisdiction, dates, and case identifiers.
 """
 
-from typing import List
-from typing import Optional
-from typing import TypedDict
+from typing import List, Optional, TypedDict
 
-from .billing import PageInfo
-from .billing import Receipt
-from .types import Character
-from .types import Date
-from .types import JurisdictionType
+from .billing import PageInfo, Receipt
+from .types import Character, Date, JurisdictionType
 
 
 class BaseCourtCase(TypedDict):
