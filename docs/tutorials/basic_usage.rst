@@ -100,4 +100,4 @@ Notes
 Next Steps
 ----------
 
-- :doc:`getting_started` – Review setup instructions
+- :doc:`best_practices` – Security and usage guidelines.
