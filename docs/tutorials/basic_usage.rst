@@ -17,7 +17,7 @@ Before performing any searches, create a client instance using your PACER creden
         password="your-password",
         secret="your-client-secret",  # optional
         client_code="your-client-code"  # optional
-        environment="qa",
+        environment="qa",  # recommended for testing
     )
 
 Immediate Search (Single Case or Party)
