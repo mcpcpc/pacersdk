@@ -100,4 +100,4 @@ Notes
 Next Steps
 ----------
 
-- :doc:`best_practices` – Security and usage guidelines.
+- :doc:`best_practices` – Security and developement guidelines.
