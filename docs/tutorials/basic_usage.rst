@@ -23,7 +23,9 @@ Before performing any searches, create a client instance using your PACER creden
 Immediate Search (Single Case or Party)
 ---------------------------------------
 
-To search for a case or party using immediate (non-batch) search:
+Immediate searches return results in groups of 54. Each group of immediate search results is
+referred to as a "page." The maximum search result size for an immediate search is 5,400 items
+(cases or parties) or 100 pages.
 
 **Case Search:**
 
