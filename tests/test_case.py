@@ -1,5 +1,4 @@
-from unittest import main
-from unittest import TestCase
+from unittest import main, TestCase
 from unittest.mock import patch
 
 from pacersdk.services.case import CaseService
