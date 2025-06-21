@@ -57,5 +57,5 @@ This setup allows you to modify the code and have changes reflected immediately.
 Next Steps
 ----------
 
-- :doc:`usage` – Learn how to use pacersdk in your project
+- :doc:`basic_usage` – Learn how to use pacersdk in your project
 - :doc:`api_reference` – Explore the available API classes and methods
