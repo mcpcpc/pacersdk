@@ -62,7 +62,7 @@ class PartyService:
     def search_all(
         self,
         criteria: PartySearchCriteria,
-        sort: Optional[List[CaseField]] = None,
+        sort: Optional[List[PartyField]] = None,
     ) -> Generator[ReportList, None, None]:
         """
         Perform a paginated party search and yield results page-by-page.
@@ -73,7 +73,7 @@ class PartyService:
         :param criteria: The party search criteria including filters such as court ID, date range, etc.
         :type criteria: PartySearchCriteria
         :param sort: Optional list of fields to sort the results by.
-        :type sort: list[CaseField] or None
+        :type sort: list[PartyField] or None
         :yield: A ReportList dictionary containing case results for a single page.
         :rtype: Generator[ReportList, None, None]
         """
