@@ -1,5 +1,5 @@
 from unittest import main, TestCase
-from unittest.mock import patch
+from unittest.mock import MagickMock, patch
 
 from pacersdk.services.case import CaseService
 
