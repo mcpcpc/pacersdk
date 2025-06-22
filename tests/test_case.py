@@ -31,10 +31,8 @@ class TestCaseService(TestCase):
 
     def test_search_all_paginates_correctly(self):
         def mock_search(criteria, page, sort=None):
-            return {
-                "pageInfo": {"totalPages": 3},
-                "page": page
-            }
+            return {"pageInfo": {"totalPages": 3}, "page": page}
+
         self.service.search = MagicMock(side_effect=mock_search)
         results = list(self.service.search_all(criteria={}))
         self.assertEqual(len(results), 3)

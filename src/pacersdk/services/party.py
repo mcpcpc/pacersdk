@@ -79,11 +79,7 @@ class PartyService:
         """
         current_page = 0
         while True:
-            report_list = self.search(
-                criteria=criteria,
-                page=current_page,
-                sort=sort
-            )
+            report_list = self.search(criteria=criteria, page=current_page, sort=sort)
             yield report_list
             page_info = report_list.get("pageInfo", {})
             total_pages = page_info.get("totalPages", 1)
