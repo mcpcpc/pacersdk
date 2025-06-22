@@ -17,7 +17,7 @@ Before performing any searches, create a client instance using your PACER creden
         password="your-password",
         secret="your-client-secret",  # optional
         client_code="your-client-code"  # optional
-        environment="qa",  # recommended for testing
+        environment="qa",  # for testing purposes
     )
 
 Immediate Search (Single Case or Party)
@@ -30,7 +30,12 @@ If more results are available beyond the first page, you must request additional
 Immediate searches are ideal for smaller queries or when users want fast access to limited sets of results. 
 Search criteria are passed as a dictionary using the relevant model: `CourtCaseSearchCriteria` or `PartySearchCriteria`.
 
-**Case Search:**
+There are two ways to perform an immediate search:
+
+1. **Single-page search** using `search()`
+2. **Paginated search** using `search_all()` to retrieve all pages automatically
+
+**Single-Page Case Search:**
 
 .. code-block:: python
 
@@ -45,7 +50,22 @@ Search criteria are passed as a dictionary using the relevant model: `CourtCaseS
     for case in report_list["content"]:
         print(case["caseNumberFull"], "-", case["caseTitle"])
 
-**Party Search:**
+**Paginated Case Search:**
+
+.. code-block:: python
+
+    from pacersdk.models.query import CourtCaseSearchCriteria
+
+    criteria: CourtCaseSearchCriteria = {
+        "courtId": "nysb",  # example: Southern District of New York
+        "caseTitle": "Acme Corp"
+    }
+
+    for report_list in client.case.search_all(criteria):
+        for case in report_list["content"]:
+            print(case["caseNumberFull"], "-", case["caseTitle"])
+
+**Single-Page Party Search:**
 
 .. code-block:: python
 
@@ -60,6 +80,20 @@ Search criteria are passed as a dictionary using the relevant model: `CourtCaseS
 
     for party in report_list["content"]:
         print(party["firstName"], party["lastName"], "--", party["caseNumberFull"])
+
+**Paginated Party Search:**
+
+.. code-block:: python
+
+    from pacersdk.models.query import PartySearchCriteria
+
+    criteria: PartySearchCriteria = {
+        "lastName": "Smith"
+    }
+
+    for report_list in client.party.search_all(criteria):
+        for party in report_list["content"]:
+            print(party["firstName"], party["lastName"], "--", party["caseNumberFull"])
 
 Batch Search
 ------------

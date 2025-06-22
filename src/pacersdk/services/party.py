@@ -3,7 +3,7 @@ Service for performing party searches via the PACER Case Locator API.
 """
 
 from logging import getLogger
-from typing import Callable, cast, List, Optional
+from typing import Generator, Callable, cast, List, Optional
 from urllib.parse import urlencode
 
 from ..models.query import PartySearchCriteria
@@ -58,3 +58,32 @@ class PartyService:
             body=criteria,
         )
         return cast(ReportList, msg)
+
+    def search_all(
+        self,
+        criteria: PartySearchCriteria,
+        sort: Optional[List[PartyField]] = None,
+    ) -> Generator[ReportList, None, None]:
+        """
+        Perform a paginated party search and yield results page-by-page.
+
+        This method iterates over all available pages of results based on
+        the initial search criteria.
+
+        :param criteria: The party search criteria including filters such as court ID, date range, etc.
+        :type criteria: PartySearchCriteria
+        :param sort: Optional list of fields to sort the results by.
+        :type sort: list[PartyField] or None
+        :yield: A ReportList dictionary containing case results for a single page.
+        :rtype: Generator[ReportList, None, None]
+        """
+        current_page = 0
+        while True:
+            report_list = self.search(criteria=criteria, page=current_page, sort=sort)
+            yield report_list
+            page_info = report_list.get("pageInfo", {})
+            total_pages = page_info.get("totalPages", 1)
+            if current_page + 1 < total_pages:
+                current_page += 1
+            else:
+                break
