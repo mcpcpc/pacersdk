@@ -17,7 +17,7 @@ Before performing any searches, create a client instance using your PACER creden
         password="your-password",
         secret="your-client-secret",  # optional
         client_code="your-client-code"  # optional
-        environment="qa",  # recommended for testing
+        environment="qa",  # for testing purposes
     )
 
 Immediate Search (Single Case or Party)
@@ -57,7 +57,7 @@ There are two ways to perform an immediate search:
     from pacersdk.models.query import CourtCaseSearchCriteria
 
     criteria: CourtCaseSearchCriteria = {
-        "courtId": ["nysb"],  # example: Southern District of New York
+        "courtId": "nysb",  # example: Southern District of New York
         "caseTitle": "Acme Corp"
     }
 
@@ -88,7 +88,7 @@ There are two ways to perform an immediate search:
     from pacersdk.models.query import PartySearchCriteria
 
     criteria: PartySearchCriteria = {
-        "lastName": "smith"
+        "lastName": "Smith"
     }
 
     for report_list in client.party.search_all(criteria):
